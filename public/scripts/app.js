@@ -8,3 +8,7 @@
 //     }
 //   });;
 // });
+
+const createPollMaker = (pollMaker) => {
+
+}
