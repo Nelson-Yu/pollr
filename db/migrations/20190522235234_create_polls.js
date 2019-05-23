@@ -2,11 +2,11 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('polls', (table) => {
     table.increments();
-    table.string('admin_name', 50).notNullable();
-    table.string('admin_email', 50).notNullable();
-    table.string('question').notNullable();
-    table.string('vote_link').notNullable();
-    table.string('result_link').notNullable();
+    table.string('admin_name', 50)
+    table.string('admin_email', 50)
+    table.string('question')
+    table.string('vote_link')
+    table.string('result_link')
   });
 };
 
