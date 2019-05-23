@@ -3,7 +3,7 @@ const mailgun = require("mailgun-js");
 const DOMAIN = process.env.DOMAIN;
 const mg = mailgun({apiKey: process.env.API_KEY, domain: DOMAIN});
 const data = {
-	from: `Pollr <me@${DOMAIN}>`,
+	from: `Pollr <noreply@${DOMAIN}>`,
 	to: 'betttyquu@gmail.com',
 	subject: 'Hello2',
 	text: 'Testing some Mailgun awesomness!'
