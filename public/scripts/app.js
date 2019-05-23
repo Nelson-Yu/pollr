@@ -26,4 +26,9 @@ $("#createpollbutton").click(function(){
 $("#sortable").sortable();
 $("#sortable").disableSelection();
 
+$("#submitvotebutton").click(function(){
+  $("#votepage").slideToggle(200, "swing");
+  $("#thankyou").slideToggle(200, "swing");
+});
+
 });

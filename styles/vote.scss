@@ -1,9 +1,6 @@
 body {
-  background-color: #fff;
+  background-color: #f9fbfc;
   font-family: 'Open Sans', sans-serif;
-}
-
-body header {
 }
 
 header h1 {
@@ -14,17 +11,6 @@ header h1 {
   color: #4749a0;
 }
 
-main div p {
-  margin: auto;
-  margin-top: 70px;
-  margin-bottom: 70px;
-  width: 70%;
-  text-align: center;
-  color: #4749a0;
-  font-size: 1.4em;
-
-}
-
 main section {
   margin: auto;
   width: 60%;
@@ -32,21 +18,81 @@ main section {
   text-align: center;
   background-color: #ff7e5d;
   border-radius: 20px;
-  -webkit-box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
-  -moz-box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
-  box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
+  -webkit-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
+  -moz-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
+  box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
 }
 
 main section input {
   background-color: #ff7e5d;
   border: 0px;
-  color: #fdf3e6;
+  color: #ffffff;
   font-size: 1.4em;
   font-weight: 600;
   display: inline-block;
   margin-top: 25px;
 }
 
+main .page-header {
+  padding: 1em;
+  margin-top: 1em;
+}
+
+main .page-header h3 {
+  text-align: center;
+  margin: auto;
+}
+
+main .page-header p {
+  margin: auto;
+  width: 70%;
+  text-align: center;
+  color: #4749a0;
+  font-size: 1em;
+}
+
 main #sortable {
+  margin: auto;
+  text-align: center;
   list-style-type: none;
+}
+
+main .option {
+  text-align: center;
+  margin: auto;
+  margin-top: 1.5em;
+  padding: 0.5em;
+  border-radius: 20px;
+  width: 75%;
+  background-color: #ff7e5d;
+  color: #ffffff;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+}
+
+main #votepage #submitvotebutton {
+  margin-left: 25%;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border-width: 0px;
+  font-size: 1.5em;
+  width: 50%;
+  height: 60px;
+  padding: 5px;
+  background-color: #4749a0;
+  color: #ffffff;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+}
+
+main #thankyou {
+  display: none;
+  font-size: 1.5em;
+  text-align: center;
+  margin: auto;
+  color: #4749a0;
 }
