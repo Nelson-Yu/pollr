@@ -17,6 +17,12 @@ $("#startbutton").click(function(){
   $(".question").select();
 });
 
+$("#createpollbutton").click(function(){
+  $("#createpoll").slideToggle(200, "swing");
+  $("#userpage").slideToggle(200, "swing");
+  $("#name").select();
+});
+
 $("#sortable").sortable();
 $("#sortable").disableSelection();
 
