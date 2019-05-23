@@ -46,3 +46,64 @@ main section input {
   display: inline-block;
   margin-top: 25px;
 }
+
+main form {
+  /*background-color: #fdf3e6;*/
+  margin: auto;
+  width: 80%;
+  /*height: 300px;*/
+  border-radius: 20px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+main form .question {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-width: 0px;
+  font-size: 1.5em;
+  width: 90%;
+  background-color: #f0faf9;
+  color: #4749a0;
+  font-weight: 600;
+  opacity: 1;
+  padding: 5px;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+}
+
+main form .option {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-width: 0px;
+  font-size: 1.2em;
+  width: 80%;
+  padding: 5px;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+}
+
+main form .submit {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-width: 0px;
+  font-size: 1.5em;
+  width: 70%;
+  padding: 5px;
+  background-color: #4749a0;
+  color: #f9f1fb;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+}
+
+
+
