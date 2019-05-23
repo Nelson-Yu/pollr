@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 // $(() => {
 //   $.ajax({
 //     method: "GET",
@@ -9,6 +11,10 @@
 //   });;
 // });
 
-const createPollMaker = (pollMaker) => {
+$("#startbutton").click(function(){
+  $("#landing").slideToggle(200, "swing");
+  $("#createpoll").slideToggle(200, "swing");
+  $(".question").select();
+});
 
-}
+});
