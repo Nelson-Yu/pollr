@@ -23,5 +23,9 @@ $("#createpollbutton").click(function(){
   $("#name").select();
 });
 
+$("#createuserbutton").click(function(){
+  $("#userpage").slideToggle(200, "swing");
+  $("#adminpage").slideToggle(200, "swing");
+});
 
 });
