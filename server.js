@@ -39,9 +39,18 @@ app.use(express.static("public"));
 app.use("/api/users", usersRoutes(knex));
 
 // Home page
+app.get("/vote", (req, res) => {
+  res.render("vote");
+});
+
+app.get("/result", (req, res) => {
+  res.render("result");
+});
+
 app.get("/", (req, res) => {
   res.render("index");
 });
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
