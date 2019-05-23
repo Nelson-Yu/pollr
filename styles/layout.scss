@@ -1,9 +1,6 @@
 body {
-  background-color: #fff;
+  background-color: #f9fbfc;
   font-family: 'Open Sans', sans-serif;
-}
-
-body header {
 }
 
 header h1 {
@@ -22,7 +19,6 @@ main div p {
   text-align: center;
   color: #4749a0;
   font-size: 1.4em;
-
 }
 
 main section {
@@ -32,22 +28,22 @@ main section {
   text-align: center;
   background-color: #ff7e5d;
   border-radius: 20px;
-  -webkit-box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
-  -moz-box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
-  box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
+  -webkit-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
+  -moz-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
+  box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
 }
 
 main section input {
   background-color: #ff7e5d;
   border: 0px;
-  color: #fdf3e6;
+  color: #ffffff;
   font-size: 1.4em;
   font-weight: 600;
   display: inline-block;
   margin-top: 25px;
 }
 
-main form {
+main #createpoll {
   /*background-color: #fdf3e6;*/
   margin: auto;
   width: 80%;
@@ -55,6 +51,7 @@ main form {
   border-radius: 20px;
   margin-top: 70px;
   text-align: center;
+  display: none;
 }
 
 main form .question {
@@ -63,16 +60,23 @@ main form .question {
   margin-bottom: 20px;
   border-radius: 5px;
   border-width: 0px;
-  font-size: 1.5em;
+  font-size: 1.3em;
   width: 90%;
-  background-color: #f0faf9;
   color: #4749a0;
-  font-weight: 600;
-  opacity: 1;
-  padding: 5px;
-  -webkit-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
-  -moz-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
-  box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  font-weight: 400;
+  padding: 10px;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
+}
+
+main form .question::placeholder {
+ /*color: #ff7e5d;*/
+ opacity:0.8;
+}
+
+.question:focus {
+    outline: none;
 }
 
 main form .option {
@@ -84,9 +88,9 @@ main form .option {
   font-size: 1.2em;
   width: 80%;
   padding: 5px;
-  -webkit-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
-  -moz-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
-  box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
 }
 
 main form .submit {
@@ -98,12 +102,11 @@ main form .submit {
   font-size: 1.5em;
   width: 70%;
   padding: 5px;
-  background-color: #4749a0;
-  color: #f9f1fb;
-  -webkit-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
-  -moz-box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
-  box-shadow: 0px 3px 17px -10px rgba(71,73,160,0.5);
+  background-color: #ff7e5d;
+  color: #ffffff;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
 }
-
 
 
