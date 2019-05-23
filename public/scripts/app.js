@@ -17,4 +17,7 @@ $("#startbutton").click(function(){
   $(".question").select();
 });
 
+$("#sortable").sortable();
+$("#sortable").disableSelection();
+
 });
