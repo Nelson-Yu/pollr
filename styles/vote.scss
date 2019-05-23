@@ -1,0 +1,52 @@
+body {
+  background-color: #fff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body header {
+}
+
+header h1 {
+  font-weight: bold;
+  font-size: 2em;
+  margin-top: 10px;
+  margin-left: 15px;
+  color: #4749a0;
+}
+
+main div p {
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  width: 70%;
+  text-align: center;
+  color: #4749a0;
+  font-size: 1.4em;
+
+}
+
+main section {
+  margin: auto;
+  width: 60%;
+  height: 90px;
+  text-align: center;
+  background-color: #ff7e5d;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
+  -moz-box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
+  box-shadow: 0px 23px 46px -27px rgba(255,126,93,0.7);
+}
+
+main section input {
+  background-color: #ff7e5d;
+  border: 0px;
+  color: #fdf3e6;
+  font-size: 1.4em;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+main .drag-drop {
+  list-style-type: none;
+}
