@@ -54,7 +54,7 @@ main #createpoll {
   display: none;
 }
 
-main form .question {
+main #createpoll .question {
   margin: auto;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -70,7 +70,7 @@ main form .question {
   box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
 }
 
-main form .question::placeholder {
+main #createpoll .question::placeholder {
  /*color: #ff7e5d;*/
  opacity:0.8;
 }
@@ -79,7 +79,7 @@ main form .question::placeholder {
     outline: none;
 }
 
-main form .option {
+main #createpoll .option {
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -93,14 +93,19 @@ main form .option {
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
 }
 
-main form .submit {
+main #createpoll .option:focus {
+  outline: none;
+}
+
+main #createpoll .submit {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   border-width: 0px;
   font-size: 1.5em;
-  width: 70%;
+  width: 60%;
+  height: 60px;
   padding: 5px;
   background-color: #ff7e5d;
   color: #ffffff;
@@ -108,5 +113,85 @@ main form .submit {
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
 }
+
+main #userpage {
+  /*background-color: red;*/
+  margin: auto;
+  width: 80%;
+  /*height: 300px;*/
+  border-radius: 20px;
+  margin-top: 70px;
+  text-align: center;
+  display: none;
+}
+
+main #userpage .userinput {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-width: 0px;
+  font-size: 1.3em;
+  width: 90%;
+  color: #4749a0;
+  font-weight: 400;
+  padding: 10px;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
+}
+
+main #userpage .userinput::placeholder {
+  opacity:0.8;
+}
+
+main #userpage .userinput:focus {
+  outline: none;
+}
+
+main #userpage #name {
+  margin-top: 80px;
+}
+
+main #userpage #name {
+
+}
+
+main #userpage .submit {
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border-width: 0px;
+  font-size: 1.5em;
+  width: 60%;
+  height: 60px;
+  padding: 5px;
+  background-color: #ff7e5d;
+  color: #ffffff;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+}
+
+main #adminpage {
+  background-color: red;
+  margin: auto;
+  width: 80%;
+  /*height: 300px;*/
+  border-radius: 20px;
+  margin-top: 70px;
+  text-align: center;
+
+}
+
+#adminpage .link {
+  background-color: orange;
+  margin: auto;
+}
+
+
+
+
 
 
