@@ -38,6 +38,10 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 
+
+
+let pollID;
+
 ////////////// Functions ///////////////////
 
 function generateRandomString() {
@@ -48,18 +52,18 @@ function generateRandomString() {
 ////////////// GET routes ///////////////////
 
 // Home page
-// app.get("/vote", (req, res) => {
-//   res.render("vote");
-// });
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.get('/vote/:id', (req, res) => {
   let templateVars= {};
 
   knex
-    .select('options.id', 'polls.question', 'options.text', 'polls.vote_link')
+    .select('options.id', 'polls.question', 'options.text', 'polls.url_id')
     .from('options')
     .leftJoin('polls', 'polls.id', 'options.poll_id')
-    .where('poll_id', req.params.id)
+    .where('url_id', req.params.id)
     .then((results) => {
       templateVars = {
         options: results
@@ -72,9 +76,6 @@ app.get("/result", (req, res) => {
   res.render("result");
 });
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
 ////////////// POST routes ///////////////////
 
@@ -88,23 +89,46 @@ app.post("/create", (req, res) => {
   const urlID = generateRandomString();
 
   knex('polls')
-    .insert({question: req.body.question, vote_link: "http://localhost:8080/vote/" + urlID, result_link: "http://localhost:8080/result/" + urlID })
+    .insert({question: req.body.question, url_id: urlID})
     .returning('id')
     .then((id) => {
+      let optionsArr = []
       options.forEach(function(element){
-        return knex('options')
-        .insert({ poll_id: id[0], text: element})
+        optionsArr.push({ poll_id: id[0], text: element})
+      })
+        console.log("The id is: " + optionsArr);
+        pollID = id[0]
+        knex('options')
+        .insert(optionsArr)
         .then((id)=>{
-          return;
         });
-      });
     // knex.destroy();
     });
 });
 
 
+app.post("/user", (req, res) => {
+  console.log("pollID in /user is " + pollID)
+
+  knex('polls')
+    .where('id', '=', pollID)
+    .update({admin_name: req.body.name, admin_email: req.body.email})
+    .asCallback(function(err, rows) {
+      if (err) return console.error(err);
+      knex.destroy();
+    });
+});
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+
+
+
+
+
+
+
+
 

@@ -32,7 +32,30 @@ $(document).ready(function() {
   });
  }
 
+  const submitUserButton = () => {
+  console.log("submitCreateButton function run")
+  $("#createuserbutton").click(function(event) {
+    let userInfo = $("#userpage").serialize();
+    console.log("submitCreateButton function finished"+ userInfo);
+
+    $.ajax({
+      method: "POST",
+      url: "/user",
+      data: userInfo,
+      dataType: "json",
+      success: function(result){
+        console.log("it was success ",result);
+      },
+      error: function(err){
+        console.log("we are in an error",err);
+      }
+    })
+
+  });
+ }
+
 submitCreateButton();
+submitUserButton();
 
 
 
