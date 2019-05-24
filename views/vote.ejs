@@ -20,7 +20,6 @@
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- App JS -->
@@ -38,17 +37,18 @@
 
     <main>
       <div class="page-header">
-        <h3> Question </h3>
+        <h3><%= options[0]['question'] %></h3>
         <p> Drag & drop for your selection</p>
       </div>
 
       <form id="votepage">
         <ui id="sortable">
-          <li class="option">option 1</li>
-          <li class="option">option 2</li>
-          <li class="option">option 3</li>
-          <li class="option">option 4</li>
-          <li class="option">option 5</li>
+          <% for (let key in options) { %>
+            <% let option = options[key]; %>
+            <li class="option">
+              <%= option['text'] %>
+            </li>
+          <% } %>
         </ui>
         <button id="submitvotebutton" type="button">Vote</button>
       </form>

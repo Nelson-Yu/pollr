@@ -48,8 +48,24 @@ function generateRandomString() {
 ////////////// GET routes ///////////////////
 
 // Home page
-app.get("/vote", (req, res) => {
-  res.render("vote");
+// app.get("/vote", (req, res) => {
+//   res.render("vote");
+// });
+
+app.get('/vote/:id', (req, res) => {
+  let templateVars= {};
+
+  knex
+    .select('options.id', 'polls.question', 'options.text', 'polls.vote_link')
+    .from('options')
+    .leftJoin('polls', 'polls.id', 'options.poll_id')
+    .where('poll_id', req.params.id)
+    .then((results) => {
+      templateVars = {
+        options: results
+      }
+    })
+    .then(() => res.render('vote', templateVars));
 });
 
 app.get("/result", (req, res) => {
@@ -93,8 +109,36 @@ app.listen(PORT, () => {
 });
 
 
+//Functions
 
-
+//  verifies if poll is active
+function verifiedActive (url) {
+  return knex('polls')
+    .where({
+      'vote_link': url,
+      'is_active': true
+    })
+    .then((results) => {
+      if (results.length === 0) {
+        console.log('Poll inactive');
+        return false;
+      }
+      console.log('verifiedVote');
+      return [results[0]['vote_link'], results[0]['id']];
+    });
+}
+// Verifies if vote url is in the database
+function verifiedVote (url) {
+  return knex('polls')
+    .where('vote_link', url)
+    .then((results) => {
+      if (results.length === 0) {
+        console.log('URL not found');
+        return false;
+      }
+      return [results[0]['vote_link'], results[0]['id']];
+    });
+}
 
 
 
