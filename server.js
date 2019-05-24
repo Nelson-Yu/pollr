@@ -89,7 +89,7 @@ app.post("/create", (req, res) => {
   const urlID = generateRandomString();
 
   knex('polls')
-    .insert({question: req.body.question, vote_link: urlID, result_link: urlID })
+    .insert({question: req.body.question, url_id: urlID})
     .returning('id')
     .then((id) => {
       options.forEach(function(element){
