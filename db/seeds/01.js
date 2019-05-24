@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
           knex('polls').insert({
             id: 1,
             admin_name: 'Betty',
-            admin_email: 'example@email.com',
+            admin_email: 'example1@email.com',
             question: 'What do you want for dinner tonight?',
             vote_link: "localhost:8080/vote/1",
             result_link: "localhost:8080/result/1"
@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
             admin_email: 'example3@email.com',
             question: 'When should I have lunch?',
             vote_link: "localhost:8080/vote/3",
-            result_link: "localhost:8080/vote/3"
+            result_link: "localhost:8080/result/3"
           })
         ]);
       });
