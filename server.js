@@ -65,7 +65,7 @@ app.get('/vote/:id', (req, res) => {
     .select('options.id', 'polls.question', 'options.text', 'polls.url_id')
     .from('options')
     .leftJoin('polls', 'polls.id', 'options.poll_id')
-    .where('poll_id', req.params.id)
+    .where('url_id', req.params.id)
     .then((results) => {
       templateVars = {
         options: results
@@ -94,15 +94,16 @@ app.post("/create", (req, res) => {
     .insert({question: req.body.question, url_id: urlID})
     .returning('id')
     .then((id) => {
+      let optionsArr = []
       options.forEach(function(element){
-        console.log("The id isssss: " + id[0]);
+        optionsArr.push({ poll_id: id[0], text: element})
+      })
+        console.log("The id is: " + optionsArr);
         pollID = id[0]
-        return knex('options')
-        .insert({ poll_id: id[0], text: element})
+        knex('options')
+        .insert(optionsArr)
         .then((id)=>{
-          return;
         });
-      });
     // knex.destroy();
     });
 });
