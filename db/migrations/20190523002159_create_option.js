@@ -1,15 +1,18 @@
+exports.up = function(knex, Promise) {  
+  return Promise.all([
+    knex.schema.createTable('options', function(table){
+    table.increments('id');
+    table.string('text');
+    table.integer('rank');
+    table.integer('poll_id').unsigned();
+    table.foreign('poll_id').references('polls.id').onDelete('cascade');
+  })
 
-exports.up = function(knex, Promise) {
-  return knex.schema.createTable('options', (table) => {
-    table.increments();
-    table.string('text')
-    table.integer('rank')
-    table.integer('poll_id').unsigned().notNullable();
-
-    table.foreign('poll_id').references('polls.id').onDelete('CASCADE');
-  });
+  ])
 };
 
-exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('options');
+exports.down = function(knex, Promise) {  
+  return Promise.all([
+    knex.schema.dropTable('options')
+  ])
 };

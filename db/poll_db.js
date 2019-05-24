@@ -21,11 +21,12 @@ knex('polls').insert({
   console.log(res);
 });
 
-// knex('options').insert({
-//   text: 'options', 
-//   rank: '5',
-// })
-// .asCallback(function(err, res) {
-//   if (err) return console.log(err);
-//   console.log(res);
-// });
+knex('options').insert({
+  text: 'hello', 
+  rank: '5',
+  poll_id: 1,
+})
+.asCallback(function(err, res) {
+  if (err) return console.log(err);
+  console.log(res);
+});
