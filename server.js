@@ -51,7 +51,27 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+////////////// POST routes ///////////////////
+
+app.post("/create", (req, res) => {
+  console.log("POST response: " + req.body.question);
+
+});
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+
+
+
+
+
+
+
+
+
+
+
+
