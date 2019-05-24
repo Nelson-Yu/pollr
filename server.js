@@ -38,6 +38,10 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 
+
+
+let pollID;
+
 ////////////// Functions ///////////////////
 
 function generateRandomString() {
@@ -76,14 +80,22 @@ app.post("/create", (req, res) => {
     .returning('id')
     .then((id) => {
       options.forEach(function(element){
+        console.log("The id isssss: " + id[0]);
+        pollID = id[0]
         return knex('options')
         .insert({ poll_id: id[0], text: element})
         .then((id)=>{
+          // pollID = id[0];
           return;
         });
       });
     // knex.destroy();
     });
+});
+
+app.post("/user", (req, res) => {
+  console.log("pollID in /user is " + pollID)
+
 });
 
 
