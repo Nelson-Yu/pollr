@@ -92,7 +92,7 @@ app.post("/create", (req, res) => {
   const urlID = generateRandomString();
 
   knex('polls')
-    .insert({question: req.body.question, vote_link: "http://localhost:8080/vote/" + urlID, result_link: "http://localhost:8080/result/" + urlID })
+    .insert({question: req.body.question, vote_link: urlID, result_link: urlID })
     .returning('id')
     .then((id) => {
       options.forEach(function(element){
@@ -101,7 +101,6 @@ app.post("/create", (req, res) => {
         return knex('options')
         .insert({ poll_id: id[0], text: element})
         .then((id)=>{
-          // pollID = id[0];
           return;
         });
       });
@@ -112,6 +111,13 @@ app.post("/create", (req, res) => {
 app.post("/user", (req, res) => {
   console.log("pollID in /user is " + pollID)
 
+  knex('polls')
+    .where('id', '=', pollID)
+    .update({admin_name: req.body.name, admin_email: req.body.email})
+    .asCallback(function(err, rows) {
+      if (err) return console.error(err);
+      knex.destroy();
+    });
 });
 
 
@@ -119,4 +125,12 @@ app.post("/user", (req, res) => {
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+
+
+
+
+
+
+
+
 
