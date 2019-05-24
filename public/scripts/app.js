@@ -10,6 +10,32 @@ $(document).ready(function() {
 //     }
 //   });;
 // });
+ const submitCreateButton = () => {
+  console.log("submitCreateButton function run")
+  $("#createpollbutton").click(function(event) {
+    let options = $("#createpoll").serialize();
+    console.log("submitCreateButton function finished"+ options);
+
+    $.ajax({
+      method: "POST",
+      url: "/create",
+      data: options,
+      dataType: "json",
+      success: function(result){
+        console.log("it was success ",result);
+      },
+      error: function(err){
+        console.log("we are in an error",err);
+      }
+    })
+
+  });
+ }
+
+submitCreateButton();
+
+
+
 
 $("#startbutton").click(function(){
   $("#landing").slideToggle(200, "swing");
@@ -27,6 +53,8 @@ $("#createuserbutton").click(function(){
   $("#userpage").slideToggle(200, "swing");
   $("#adminpage").slideToggle(200, "swing");
 });
+
+
 
 $("#sortable").sortable();
 $("#sortable").disableSelection();

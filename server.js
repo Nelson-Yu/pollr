@@ -51,7 +51,39 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+////////////// POST routes ///////////////////
+
+app.post("/create", (req, res) => {
+  console.log("POST response: " + req.body.option2);
+
+  knex('polls')
+    .insert({question: req.body.question})
+    .returning('id')
+    .then(function (response) {
+      return knex('options')
+        .insert({poll_id: response[0], text: req.body.option1})
+    });
+    // .then(function (response) {
+    //   return knex('options')
+    //     .insert({poll_id: response[0], text: req.body.option2})
+    // });
+
+});
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+
+
+
+
+
+
+
+
+
+
+
+
