@@ -48,15 +48,15 @@ function generateRandomString() {
 ////////////// GET routes ///////////////////
 
 // Home page
-// app.get("/vote", (req, res) => {
-//   res.render("vote");
-// });
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.get('/vote/:id', (req, res) => {
   let templateVars= {};
 
   knex
-    .select('options.id', 'polls.question', 'options.text', 'polls.vote_link')
+    .select('options.id', 'polls.question', 'options.text', 'polls.url_id')
     .from('options')
     .leftJoin('polls', 'polls.id', 'options.poll_id')
     .where('poll_id', req.params.id)
@@ -72,9 +72,6 @@ app.get("/result", (req, res) => {
   res.render("result");
 });
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
 ////////////// POST routes ///////////////////
 
@@ -101,8 +98,6 @@ app.post("/create", (req, res) => {
     // knex.destroy();
     });
 });
-
-
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
