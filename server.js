@@ -54,20 +54,26 @@ app.get("/", (req, res) => {
 ////////////// POST routes ///////////////////
 
 app.post("/create", (req, res) => {
-  console.log("POST response: " + req.body.option2);
+  const options = [];
+  options.push(req.body.option1);
+  options.push(req.body.option2);
+  options.push(req.body.option3);
+  options.push(req.body.option4);
+  options.push(req.body.option5);
 
   knex('polls')
     .insert({question: req.body.question})
     .returning('id')
-    .then(function (response) {
-      return knex('options')
-        .insert({poll_id: response[0], text: req.body.option1})
+    .then((id) => {
+      options.forEach(function(element){
+        return knex('options')
+        .insert({ poll_id: id[0], text: element})
+        .then((id)=>{
+          return;
+        });
+      });
+    // knex.destroy();
     });
-    // .then(function (response) {
-    //   return knex('options')
-    //     .insert({poll_id: response[0], text: req.body.option2})
-    // });
-
 });
 
 
