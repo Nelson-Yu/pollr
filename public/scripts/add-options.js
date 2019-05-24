@@ -9,4 +9,4 @@ const knex = require('knex')({
   }
 });
 
-knex('polls').insert({question: })
+

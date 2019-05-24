@@ -1,15 +1,18 @@
+// require('dotenv').config();
+// const knex = require('knex')({
+//   client: 'pg',
+//   connection: {
+//     host : process.env.DB_HOST,
+//     user : process.env.DB_USER,
+//     password : process.env.DB_PASS,
+//     database : process.env.DB_NAME
+//   }
+// });
+
 $(document).ready(function() {
 
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done((users) => {
-//     for(user of users) {
-//       $("<div>").text(user.name).appendTo($("body"));
-//     }
-//   });;
-// });
+
+
  const submitCreateButton = () => {
   console.log("submitCreateButton function run")
   $("#createpollbutton").click(function(event) {
@@ -28,7 +31,6 @@ $(document).ready(function() {
         console.log("we are in an error",err);
       }
     })
-
   });
  }
 
@@ -50,14 +52,16 @@ $(document).ready(function() {
         console.log("we are in an error",err);
       }
     })
-
   });
  }
 
+const get = () => {
+
+  // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
+}
+
 submitCreateButton();
 submitUserButton();
-
-
 
 
 $("#startbutton").click(function(){
@@ -75,6 +79,7 @@ $("#createpollbutton").click(function(){
 $("#createuserbutton").click(function(){
   $("#userpage").slideToggle(200, "swing");
   $("#adminpage").slideToggle(200, "swing");
+  $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
 });
 
 
