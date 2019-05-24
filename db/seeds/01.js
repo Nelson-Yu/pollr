@@ -7,24 +7,24 @@ exports.seed = function(knex, Promise) {
             admin_name: 'Betty',
             admin_email: 'example1@email.com',
             question: 'What do you want for dinner tonight?',
-            vote_link: "localhost:8080/vote/1",
-            result_link: "localhost:8080/result/1"
+            vote_link: "1",
+            result_link: "1"
           }),
           knex('polls').insert({
             id: 2,
             admin_name: 'Nelson',
             admin_email: 'example2@email.com',
             question: 'Who is your favourite instructor?',
-            vote_link: "localhost:8080/vote/2",
-            result_link: "localhost:8080/result/2"
+            vote_link: "2",
+            result_link: "2"
           }),
           knex('polls').insert({
             id: 3,
             admin_name: 'Turner',
             admin_email: 'example3@email.com',
             question: 'When should I have lunch?',
-            vote_link: "localhost:8080/vote/3",
-            result_link: "localhost:8080/result/3"
+            vote_link: "3",
+            result_link: "3"
           })
         ]);
       });
