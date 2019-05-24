@@ -38,6 +38,15 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 
+////////////// Functions ///////////////////
+
+function generateRandomString() {
+  const result = Math.random().toString(36).substr(2, 6);
+  return result;
+}
+
+////////////// GET routes ///////////////////
+
 // Home page
 app.get("/vote", (req, res) => {
   res.render("vote");
@@ -60,9 +69,10 @@ app.post("/create", (req, res) => {
   options.push(req.body.option3);
   options.push(req.body.option4);
   options.push(req.body.option5);
+  const urlID = generateRandomString();
 
   knex('polls')
-    .insert({question: req.body.question})
+    .insert({question: req.body.question, vote_link: "http://localhost:8080/vote/" + urlID, result_link: "http://localhost:8080/result/" + urlID })
     .returning('id')
     .then((id) => {
       options.forEach(function(element){
