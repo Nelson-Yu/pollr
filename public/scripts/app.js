@@ -86,7 +86,10 @@ $("#createuserbutton").click(function(){
 
 
 
-$("#sortable").sortable();
+$("#sortable").sortable({
+  cursor: "move",
+  axis: "y"
+});
 $("#sortable").disableSelection();
 
 $("#submitvotebutton").click(function(){
