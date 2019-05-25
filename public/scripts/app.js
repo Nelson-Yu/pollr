@@ -64,7 +64,6 @@ function appendLink(urlID) {
 
 submitCreateButton();
 submitUserButton();
-submitVoteButton();
 
 
 $("#startbutton").click(function(){
