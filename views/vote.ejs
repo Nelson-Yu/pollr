@@ -42,13 +42,13 @@
       </div>
 
       <form id="votepage">
+        <p id="crown"> 👑 </p>
         <ol id="sortable">
-          <% for (let key in options) { %>
-            <% let option = options[key]; %>
-            <li class="option">
-              <%= option['text'] %>
-            </li>
-          <% } %>
+          <li class="option" name="rank1"> <%= options[0]['text'] %></li>
+          <li class="option" name="rank2"> <%= options[1]['text'] %></li>
+          <li class="option" name="rank3"> <%= options[2]['text'] %></li>
+          <li class="option" name="rank4"> <%= options[3]['text'] %></li>
+          <li class="option" name="rank5"> <%= options[4]['text'] %></li>
         </ol>
         <button id="submitvotebutton" type="button">Vote</button>
       </form>

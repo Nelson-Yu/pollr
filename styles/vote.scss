@@ -34,7 +34,7 @@ main section input {
 }
 
 main .page-header {
-  padding: 1em;
+  padding: 1em 1em 0em 1em;
   margin-top: 1em;
 }
 
@@ -51,19 +51,34 @@ main .page-header p {
   font-size: 1em;
 }
 
+main #votepage {
+  margin: 0% 25%;
+}
+
 main #sortable {
   margin: auto;
   text-align: center;
+  padding-left: 0px;
   list-style-type: none;
+}
+
+main #crown {
+  font-size: 300%;
+  height: auto;
+  margin: 0%;
+  text-align: center;
+  height: 60px;
 }
 
 main .option {
   text-align: center;
   margin: auto;
-  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-right: 0%;
+  margin-left: 0%;
   padding: 0.5em;
   border-radius: 20px;
-  width: 75%;
+  left: 25%;
   background-color: #ff7e5d;
   color: #ffffff;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
@@ -72,9 +87,8 @@ main .option {
 }
 
 main #votepage #submitvotebutton {
-  margin-left: 25%;
   text-align: center;
-  margin-top: 40px;
+  margin-left: 25%;
   margin-bottom: 10px;
   border-radius: 20px;
   border-width: 0px;
