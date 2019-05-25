@@ -12,7 +12,6 @@
 $(document).ready(function() {
 
 
-
  const submitCreateButton = () => {
   console.log("submitCreateButton function run")
   $("#createpollbutton").click(function(event) {
@@ -57,13 +56,23 @@ $(document).ready(function() {
   });
  }
 
+ const submitVoteButton = () => {
+   console.log("submitVoteButton function run");
+   $("#submitvotebutton").click(function(event) {
+     let voteResults = $("#votepage").toArray();
+     console.log("submitVoteButton function finished " + voteResults[0]);
+     console.log("submitVoteButton function ran");
+  });
+ }
+
 function appendLink(urlID) {
-  $("#votelinkbox").append("<a href=localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
-  $("#resultlinkbox").append("<a href=localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
+  $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
+  $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
 
 submitCreateButton();
 submitUserButton();
+submitVoteButton();
 
 
 $("#startbutton").click(function(){
