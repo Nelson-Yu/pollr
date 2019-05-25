@@ -14,6 +14,11 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
+// const cookieSession = require('cookie-session');
+// app.use(cookieSession({
+//   keys: ['secretkey']
+// }));
+
 
 
 // Seperated Routes for each Resource
@@ -41,6 +46,7 @@ app.use(express.static("public"));
 app.use("/api/users", usersRoutes(knex));
 
 
+// let appendVoteLink =
 
 let pollID;
 
@@ -103,8 +109,9 @@ app.post("/create", (req, res) => {
         knex('options')
         .insert(optionsArr)
         .then((id)=>{
+          console.log("made it to the end")
+          res.json({urlID})
         });
-    // knex.destroy();
     });
 });
 
@@ -117,7 +124,6 @@ app.post("/user", (req, res) => {
     .update({admin_name: req.body.name, admin_email: req.body.email})
     .asCallback(function(err, rows) {
       if (err) return console.error(err);
-      knex.destroy();
     });
 });
 
