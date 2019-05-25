@@ -62,51 +62,67 @@ function appendLink(urlID) {
   $("#resultlinkbox").append("<a href=localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
 
+
+
+  submitCreateButton();
+  submitUserButton();
+
+// Landing page functionality/event handlers
+// Clicking 'start' button slide toggles away front page and slides in create poll form
+  $("#startbutton").click(function(){
+    $("#landing").slideToggle(200, "swing");
+    $("#createpoll").slideToggle(200, "swing");
+    $(".question").select();
+  });
+
+// Clicking 'create poll' button slide toggles away poll form and slides in admin form
+  $("#createpollbutton").click(function(){
+    $("#createpoll").slideToggle(200, "swing");
+    $("#userpage").slideToggle(200, "swing");
+    $("#name").select();
+  });
+
+// Clicking 'submit' button slide toggles away admin form and slides in admin results/vote links
+  $("#createuserbutton").click(function(){
+    $("#userpage").slideToggle(200, "swing");
+    $("#adminpage").slideToggle(200, "swing");
+    // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
+  });
+
+// Vote page functionality
+// Drag and droppable options only vertically
+  $("#sortable").sortable({
+    axis: "y"
+  });
+  $("#sortable").disableSelection();
+
+// Clicking Vote button slide toggles away ranker and slides in thank you message
+  $("#submitvotebutton").click(function(){
+    $("#votepage").slideToggle(200, "swing");
+    $("#thankyou").slideToggle(200, "swing");
+
+  });
+
   const submitVote = () => {
     $("#submitvotebutton").click(function(event) {
+      let results = $('#sortable').sortable('toArray', {attribute: 'name'});
+      console.log (`results is: ${results}`)
+
       $.ajax({
         method: "POST",
         url: "/rank",
-        data:
+        data: results,
+        dataType: 'json',
+        success: function(result){
+        console.log("it was success ",result);
+        },
+        error: function(err){
+        console.log("we are in an error",err);
+        }
       })
     })
   }
 
+  submitVote();
 
-submitCreateButton();
-submitUserButton();
-
-
-$("#startbutton").click(function(){
-  $("#landing").slideToggle(200, "swing");
-  $("#createpoll").slideToggle(200, "swing");
-  $(".question").select();
-});
-
-$("#createpollbutton").click(function(){
-  $("#createpoll").slideToggle(200, "swing");
-  $("#userpage").slideToggle(200, "swing");
-  $("#name").select();
-});
-
-$("#createuserbutton").click(function(){
-  $("#userpage").slideToggle(200, "swing");
-  $("#adminpage").slideToggle(200, "swing");
-  // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
-});
-
-// Vote page functionality
-// Drag and droppable options only vertically
-$("#sortable").sortable({
-  cursor: "move",
-  axis: "y"
-});
-$("#sortable").disableSelection();
-
-// Clicking Vote button slide toggles away ranker and slides in thank you message
-$("#submitvotebutton").click(function(){
-  $("#votepage").slideToggle(200, "swing");
-  $("#thankyou").slideToggle(200, "swing");
-
-});
 });

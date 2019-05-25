@@ -49,5 +49,7 @@ knex.select('rank', 'text', 'id').from('options').orderBy('id')//.where({ poll_i
     })
     })
 
-
-  
+module.exports = {
+  sorted,
+  updateRanks
+}

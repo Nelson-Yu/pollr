@@ -14,6 +14,7 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
+// const borda       = require('./db/borda_count.js');
 // const cookieSession = require('cookie-session');
 // app.use(cookieSession({
 //   keys: ['secretkey']
@@ -115,7 +116,7 @@ app.post("/create", (req, res) => {
     .then((id) => {
       let optionsArr = []
       options.forEach(function(element){
-        optionsArr.push({ poll_id: id[0], text: element})
+        optionsArr.push({ poll_id: id[0], text: element, rank: 0})
       })
         console.log("The id is: " + optionsArr);
         pollID = id[0]
@@ -141,7 +142,29 @@ app.post("/user", (req, res) => {
 
 app.post("/rank", (req, res) => {
 
+  console.log(req.body.results)
+
+  // knex.select('rank', 'text', 'id')
+  //     .from('options')
+  //     .orderBy('id')//.where({ poll_id: 1 })
+  //     .asCallback(function (err, rows) {
+  //       if (err) return console.error(err);
+  //       let submission = [
+  //         rows[3].id,
+  //         rows[4].id,
+  //         rows[1].id,
+  //         rows[2].id,
+  //         rows[0].id,
+  //       ]
+  //       borda.updateRanks(submission).then(results => {
+  //         console.log(results);
+  //         borda.sorted();
+  //       })
+
+  //     })
 })
+
+
 
 ////////////// LISTEN PORT ///////////////////
 
