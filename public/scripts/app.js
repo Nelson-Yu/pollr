@@ -62,6 +62,17 @@ function appendLink(urlID) {
   $("#resultlinkbox").append("<a href=localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
 
+  const submitVote = () => {
+    $("#submitvotebutton").click(function(event) {
+      $.ajax({
+        method: "POST",
+        url: "/rank",
+        data:
+      })
+    })
+  }
+
+
 submitCreateButton();
 submitUserButton();
 
@@ -84,14 +95,15 @@ $("#createuserbutton").click(function(){
   // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
 });
 
-
-
+// Vote page functionality
+// Drag and droppable options only vertically
 $("#sortable").sortable({
   cursor: "move",
   axis: "y"
 });
 $("#sortable").disableSelection();
 
+// Clicking Vote button slide toggles away ranker and slides in thank you message
 $("#submitvotebutton").click(function(){
   $("#votepage").slideToggle(200, "swing");
   $("#thankyou").slideToggle(200, "swing");

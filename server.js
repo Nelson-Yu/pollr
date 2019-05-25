@@ -128,7 +128,6 @@ app.post("/create", (req, res) => {
     });
 });
 
-
 app.post("/user", (req, res) => {
   console.log("pollID in /user is " + pollID)
 
@@ -140,6 +139,11 @@ app.post("/user", (req, res) => {
     });
 });
 
+app.post("/rank", (req, res) => {
+
+})
+
+////////////// LISTEN PORT ///////////////////
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
