@@ -91,10 +91,33 @@ function appendLink(urlID) {
 
 // Vote page functionality
 // Drag and droppable options only vertically
+
   $("#sortable").sortable({
-    axis: "y"
+    axis: 'y'
   });
+
   $("#sortable").disableSelection();
+
+// Submits sortable order into an array and posts it to be requested in server.js
+  $("#submitvotebutton").click(function(event) {
+    let arr = []
+    arr = $('#sortable').sortable('toArray', {attribute: 'value'})
+
+    console.log(arr)
+
+    $.ajax({
+      method: "POST",
+      url: "/vote/:id",
+      data: {result: arr},
+      success: function(result){
+        console.log("it was success ", results);
+      },
+      error: function(err){
+        console.log("we are in an error",err);
+      }
+    })
+  })
+
 
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
@@ -103,26 +126,5 @@ function appendLink(urlID) {
 
   });
 
-  const submitVote = () => {
-    $("#submitvotebutton").click(function(event) {
-      let results = $('#sortable').sortable('toArray', {attribute: 'name'});
-      console.log (`results is: ${results}`)
-
-      $.ajax({
-        method: "POST",
-        url: "/rank",
-        data: results,
-        dataType: 'json',
-        success: function(result){
-        console.log("it was success ",result);
-        },
-        error: function(err){
-        console.log("we are in an error",err);
-        }
-      })
-    })
-  }
-
-  submitVote();
 
 });

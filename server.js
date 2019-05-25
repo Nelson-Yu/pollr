@@ -14,13 +14,7 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
-// const borda       = require('./db/borda_count.js');
-// const cookieSession = require('cookie-session');
-// app.use(cookieSession({
-//   keys: ['secretkey']
-// }));
-
-
+const borda       = require('./db/borda_count.js');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
@@ -140,30 +134,17 @@ app.post("/user", (req, res) => {
     });
 });
 
-app.post("/rank", (req, res) => {
+app.post("/vote/:id", (req, res) => {
+  const order = req.body.result;
+  console.log(order);
 
-  console.log(req.body.results)
-
-  // knex.select('rank', 'text', 'id')
-  //     .from('options')
-  //     .orderBy('id')//.where({ poll_id: 1 })
-  //     .asCallback(function (err, rows) {
-  //       if (err) return console.error(err);
-  //       let submission = [
-  //         rows[3].id,
-  //         rows[4].id,
-  //         rows[1].id,
-  //         rows[2].id,
-  //         rows[0].id,
-  //       ]
-  //       borda.updateRanks(submission).then(results => {
-  //         console.log(results);
-  //         borda.sorted();
-  //       })
-
-  //     })
+    knex('options').leftJoin('polls', 'polls.id', 'options.poll_id')
+      .where('url_id', req.params.id)
+      .then ((results) => {
+        return borda.updateRanks(order);
+        console.log(results);
+      })
 })
-
 
 
 ////////////// LISTEN PORT ///////////////////
