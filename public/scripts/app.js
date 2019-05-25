@@ -11,7 +11,6 @@
 
 $(document).ready(function() {
 
-
  const submitCreateButton = () => {
   console.log("submitCreateButton function run")
   $("#createpollbutton").click(function(event) {
@@ -61,8 +60,6 @@ function appendLink(urlID) {
   $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
   $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
-
-
 
   submitCreateButton();
   submitUserButton();
@@ -117,7 +114,6 @@ function appendLink(urlID) {
       }
     })
   })
-
 
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
