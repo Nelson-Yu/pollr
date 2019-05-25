@@ -56,14 +56,6 @@ $(document).ready(function() {
   });
  }
 
- const submitVoteButton = () => {
-   console.log("submitVoteButton function run");
-   $("#submitvotebutton").click(function(event) {
-     let voteResults = $("#votepage").toArray();
-     console.log("submitVoteButton function finished " + voteResults[0]);
-     console.log("submitVoteButton function ran");
-  });
- }
 
 function appendLink(urlID) {
   $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
