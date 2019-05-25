@@ -65,7 +65,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/vote/:id', (req, res) => {
-  let templateVars= {};
+  let templateVars = {};
 
   knex
     .select('options.id', 'polls.question', 'options.text', 'polls.url_id')
@@ -80,8 +80,21 @@ app.get('/vote/:id', (req, res) => {
     .then(() => res.render('vote', templateVars));
 });
 
-app.get("/result", (req, res) => {
-  res.render("result");
+app.get("/result/:id", (req, res) => {
+  let templateVars= {};
+
+  knex
+    .select('options.id', 'polls.question', 'options.text', 'options.rank', 'polls.url_id')
+    .from('options')
+    .leftJoin('polls', 'polls.id', 'options.poll_id')
+    .where('url_id', req.params.id)
+    .orderBy('options.rank', 'desc')
+    .then((results) => {
+      templateVars = {
+        options: results
+      }
+    })
+    .then(() => res.render('result', templateVars));
 });
 
 

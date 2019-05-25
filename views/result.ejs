@@ -35,13 +35,13 @@
 
       <form>
         <h3>Results</h3>
-        <p id="view">View your results here</p>
+        <p id="view"><%= options[0]['question'] %></p>
         <ul id="resultspage">
-          <li id="first" class="result"> Option 1</li>
-          <li id="second" class="result"> Option 2</li>
-          <li id="third" class="result"> Option 3</li>
-          <li id="fourth" class="result"> Option 4</li>
-          <li id="fifth" class="result"> Option 5</li>
+          <li id="first" class="result"> 1. <%= options[0]['text'] %> </li>
+          <li id="second" class="result"> 2. <%= options[1]['text'] %> </li>
+          <li id="third" class="result"> 3. <%= options[2]['text'] %> </li>
+          <li id="fourth" class="result"> 4. <%= options[3]['text'] %> </li>
+          <li id="fifth" class="result">  5. <%= options[4]['text'] %> </li>
         </ul>
       </form>
 
