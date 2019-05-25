@@ -124,7 +124,7 @@ app.post("/create", (req, res) => {
 });
 
 app.post("/user", (req, res) => {
-  console.log("pollID in /user is " + pollID)
+  // console.log("pollID in /user is " + pollID)
 
   knex('polls')
     .where('id', '=', pollID)

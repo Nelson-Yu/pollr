@@ -12,7 +12,6 @@
 $(document).ready(function() {
 
 
-
  const submitCreateButton = () => {
   console.log("submitCreateButton function run")
   $("#createpollbutton").click(function(event) {
@@ -57,9 +56,10 @@ $(document).ready(function() {
   });
  }
 
+
 function appendLink(urlID) {
-  $("#votelinkbox").append("<a href=localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
-  $("#resultlinkbox").append("<a href=localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
+  $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
+  $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
 
 
