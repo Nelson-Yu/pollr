@@ -40,40 +40,21 @@ form p {
 }
 
 .result {
-  text-align: center;
-  margin: auto;
   margin-top: 1em;
   padding: 0.5em;
-  border-radius: 20px;
-  background-color: #ff7e5d;
-  color: #ffffff;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
 }
 
 #first {
-  font-size: 2.0em;
+  text-align: center;
+  font-size: 1.5em;
   width: 80%;
 }
 
-#second {
-  font-size: 1.4em;
-  width: 70%;
-}
-
-#third {
-  font-size: 1.2em;
-  width: 60%;
-}
-
-#fourth {
+.losers {
+  text-align: center;
   font-size: 1.0em;
-  width: 50%;
+  width: 60%
 }
-
-#fifth {
-  font-size: 0.8em;
-  width: 40%;
-}
-
