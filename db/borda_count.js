@@ -11,10 +11,10 @@ const knex = require('knex')({
 
 // sorting rank by highest first
 const sorted = function() {
-  knex.select('rank', 'text').from('options').where({ poll_id: 1 }).orderBy('rank', 'desc')
+  knex.select('rank', 'text').from('options').orderBy('rank', 'desc')//.where({ poll_id: 1 })
   .asCallback(function (err, rows) {
     if (err) return console.error(err);
-    // console.log(rows);
+    console.log(rows);
   });
 }
 
@@ -28,15 +28,15 @@ function updateRanks(optionIDs) {
 }
 
 // updating ranks
-knex.select('rank', 'text', 'id').from('options').where({ poll_id: 1 }).orderBy('id')
+knex.select('rank', 'text', 'id').from('options').orderBy('id')//.where({ poll_id: 1 })
   .asCallback(function (err, rows) {
     if (err) return console.error(err);
     let submission = [
       rows[3].id,
       rows[4].id,
+      rows[1].id,
       rows[2].id,
       rows[0].id,
-      rows[1].id,
     ]
     updateRanks(submission).then(results => {
       console.log(results);
