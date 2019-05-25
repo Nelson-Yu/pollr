@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 function appendLink(urlID) {
   $("#votelinkbox").append("<a href=localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
-  $("#resultlinkbox").append("<a href=localhost:8080/result/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
+  $("#resultlinkbox").append("<a href=localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
 
 submitCreateButton();
