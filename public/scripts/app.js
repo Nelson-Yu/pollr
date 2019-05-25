@@ -37,25 +37,43 @@ $(document).ready(function() {
  }
 
   const submitUserButton = () => {
-  console.log("submitCreateButton function run")
-  $("#createuserbutton").click(function(event) {
-    let userInfo = $("#userpage").serialize();
-    console.log("submitCreateButton function finished"+ userInfo);
+    console.log("submitCreateButton function run")
+    $("#createuserbutton").click(function (event) {
+      let userInfo = $("#userpage").serialize();
+      console.log("submitCreateButton function finished" + userInfo);
 
+      $.ajax({
+        method: "POST",
+        url: "/user",
+        data: userInfo,
+        dataType: "json",
+        success: function (result) {
+          sendLinks();
+          console.log("it was success ", result);
+        },
+        error: function (err) {
+          console.log("we are in an error", err);
+        }
+      })
+    });
+  }
+
+  function sendLinks() {
+    const resultLink = $("#resultlink").serialize();
+    const voteLink = $("#polllink").serialize();
     $.ajax({
       method: "POST",
-      url: "/user",
-      data: userInfo,
+      url: "/links",
+      data: resultLink + voteLink,
       dataType: "json",
-      success: function(result){
-        console.log("it was success ",result);
+      success: function (result) {
+        console.log("it was success ", result);
       },
-      error: function(err){
-        console.log("we are in an error",err);
+      error: function (err) {
+        console.log("we are in an error", err);
       }
     })
-  });
- }
+  }
 
 function appendLink(urlID) {
   $("#votelinkbox").append("<a href=localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
