@@ -42,14 +42,14 @@
       </div>
 
       <form id="votepage">
-        <ui id="sortable">
+        <ol id="sortable">
           <% for (let key in options) { %>
             <% let option = options[key]; %>
             <li class="option">
               <%= option['text'] %>
             </li>
           <% } %>
-        </ui>
+        </ol>
         <button id="submitvotebutton" type="button">Vote</button>
       </form>
 
