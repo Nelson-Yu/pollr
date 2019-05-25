@@ -115,8 +115,12 @@ console.log(urlID);
 		to: 'betttyquu@gmail.com',
 		subject: 'Pollr - Your new poll links',
     text: `
-    To the take the poll ${urlID}
-    To view result ${urlID}`
+    To the take the poll:
+    http://localhost:8080/vote/${urlID}
+    
+    To view result:
+    http://localhost:8080/result/${urlID}
+    `
 	};
 	mg.messages().send(data, function (error, body) {
 		if (error) {
@@ -132,7 +136,9 @@ app.get("/update", (req, res) => {
 		from: `Pollr <noreply@${DOMAIN}>`,
 		to: 'betttyquu@gmail.com',
 		subject: 'Pollr - Your new poll has an update',
-    text: `To view result ${urlID}`
+    text: `    
+    To see your updated result:
+    http://localhost:8080/result/${urlID}`
   };
   mg.messages().send(data, function (error, body) {
 		if (error) {
