@@ -11,29 +11,28 @@
 
 $(document).ready(function() {
 
-  const submitCreateButton = () => {	
+  const submitCreateButton = () => {
     console.log("submitCreateButton function run")
-  $("#createpollbutton").click(function(event) {
-    let options = $("#createpoll").serialize();
-    console.log("submitCreateButton function finished "+ options);
+    $("#createpollbutton").click(function(event) {
+      let options = $("#createpoll").serialize();
+      console.log("submitCreateButton function finished "+ options);
 
-    $.ajax({
-      method: "POST",
-      url: "/create",
-      data: options,
-      dataType: "json",
-      success: function(result){
-        // console.log("it was success ", result);
-        // console.log("Here is the ID: " + result.urlID);
-        appendLink(result.urlID);
-      },
-      error: function(err){
-        console.log("we are in an error",err);
-      }
-    })
-  });
-}
-
+      $.ajax({
+        method: "POST",
+        url: "/create",
+        data: options,
+        dataType: "json",
+        success: function(result){
+          // console.log("it was success ", result);
+          // console.log("Here is the ID: " + result.urlID);
+          appendLink(result.urlID);
+        },
+        error: function(err){
+          console.log("we are in an error",err);
+        }
+      })
+    });
+  }
 
   const submitUserButton = () => {
     console.log("submitCreateButton function run")
@@ -74,7 +73,6 @@ $(document).ready(function() {
     })
   }
 
-
   $("#createuserbutton").click(function(event) {
     let userInfo = $("#userpage").serialize();
     console.log("submitCreateButton function finished"+ userInfo);
@@ -98,15 +96,13 @@ $(document).ready(function() {
 
   }
 
+  function appendLink(urlID) {
+    $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
+    $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
+  }
 
-
-function appendLink(urlID) {
-  $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
-  $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
-}
-
-submitCreateButton();
-// submitUserButton();
+  submitCreateButton();
+  submitUserButton();
 
 // Landing page functionality/event handlers
 // Clicking 'start' button slide toggles away front page and slides in create poll form
@@ -136,8 +132,6 @@ submitCreateButton();
   $("#sortable").sortable({
     axis: 'y'
   });
-
-
 
   $("#sortable").disableSelection();
 
@@ -173,14 +167,14 @@ submitCreateButton();
 
   })
 
-$("#submitvotebutton").click(function(){
-  $("#votepage").slideToggle(200, "swing");
-  $("#thankyou").slideToggle(200, "swing");
-});
+  $("#submitvotebutton").click(function(){
+    $("#votepage").slideToggle(200, "swing");
+    $("#thankyou").slideToggle(200, "swing");
+  });
 
-$("#submitvotebutton").click(function(){
-  updateResults();
-})
+  $("#submitvotebutton").click(function(){
+    updateResults();
+  })
 
 
 });
