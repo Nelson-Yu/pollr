@@ -258,6 +258,40 @@ main #adminpage {
   box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
 }
 
+#adminpage #socialmedia {
+  margin: auto;
+  width: 90%;
+}
 
+#adminpage #socialmedia p {
+  text-align: center;
+  font-weight: 600;
+  font-size: .9em;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #4749a0;
+}
+#adminpage .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
 
+#adminpage .fa-facebook {
+  background: #3B5998;
+  color: white;
+}
 
+#adminpage .fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+#adminpage .fa-instagram {
+  background: #DD2A7B;
+  color: white;
+}
