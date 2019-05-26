@@ -76,7 +76,6 @@ $(document).ready(function() {
 
   function updateResults() {
     const resultLink = $("#resultlink").serialize();
-    // const voteLink = $("#polllink").serialize();
     $.ajax({
       method: "GET",
       url: "/update",
@@ -120,10 +119,8 @@ $("#createuserbutton").click(function(){
 });
 
 $("#createuserbutton").click(function (){
-  sendLinks()
+  sendLinks();
 })
-
-
 
 
 $("#sortable").sortable({
