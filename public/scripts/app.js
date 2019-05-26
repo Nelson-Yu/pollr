@@ -1,16 +1,18 @@
-// require('dotenv').config();
-// const knex = require('knex')({
-//   client: 'pg',
-//   connection: {
-//     host : process.env.DB_HOST,
-//     user : process.env.DB_USER,
-//     password : process.env.DB_PASS,
-//     database : process.env.DB_NAME
-//   }
-// });
+// // require('dotenv').config();
+// // const knex = require('knex')({
+// //   client: 'pg',
+// //   connection: {
+// //     host : process.env.DB_HOST,
+// //     user : process.env.DB_USER,
+// //     password : process.env.DB_PASS,
+// //     database : process.env.DB_NAME
+// //   }
+// // });
 
 $(document).ready(function() {
 
+  const submitCreateButton = () => {	
+    console.log("submitCreateButton function run")
   $("#createpollbutton").click(function(event) {
     let options = $("#createpoll").serialize();
     console.log("submitCreateButton function finished "+ options);
@@ -30,6 +32,7 @@ $(document).ready(function() {
       }
     })
   });
+}
 
 
   const submitUserButton = () => {
@@ -53,6 +56,7 @@ $(document).ready(function() {
     });
   }
 
+//send new poll to admin email
   function sendLinks() {
     const resultLink = $("#resultlink").serialize();
     const voteLink = $("#polllink").serialize();
@@ -76,6 +80,7 @@ $(document).ready(function() {
     console.log("submitCreateButton function finished"+ userInfo);
   })
 
+  // send poll updates to admin email
   function updateResults() {
     const resultLink = $("#resultlink").serialize();
     $.ajax({
@@ -101,7 +106,7 @@ function appendLink(urlID) {
 }
 
 submitCreateButton();
-submitUserButton();
+// submitUserButton();
 
 // Landing page functionality/event handlers
 // Clicking 'start' button slide toggles away front page and slides in create poll form
@@ -159,8 +164,6 @@ submitUserButton();
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
     $(".page-header").slideToggle(200, "swing");
-    $("#votepage").slideToggle(200, "swing");
-    $("#thankyou").slideToggle(200, "swing");
     $("#seeresults").slideToggle(200, "swing");
   });
 
@@ -173,7 +176,6 @@ submitUserButton();
 $("#submitvotebutton").click(function(){
   $("#votepage").slideToggle(200, "swing");
   $("#thankyou").slideToggle(200, "swing");
-
 });
 
 $("#submitvotebutton").click(function(){
