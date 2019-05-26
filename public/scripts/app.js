@@ -93,8 +93,6 @@ $(document).ready(function() {
 
   }
 
-
-
 function appendLink(urlID) {
   $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
   $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
@@ -105,11 +103,6 @@ submitUserButton();
 
 // Landing page functionality/event handlers
 // Clicking 'start' button slide toggles away front page and slides in create poll form
-  $("#startbutton").click(function(){
-    $("#landing").slideToggle(200, "swing");
-    $("#createpoll").slideToggle(200, "swing");
-    $(".question").select();
-  });
 
 $("#startbutton").click(function(){
   $("#landing").slideToggle(400, "swing");
@@ -149,7 +142,7 @@ $("#createuserbutton").click(function(){
   $("#sortable").sortable({
     axis: 'y'
   });
->>>>>>> 08727957e93eb952702f467b1a874d617196d810
+
 
 
 
