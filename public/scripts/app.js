@@ -56,10 +56,10 @@ $(document).ready(function() {
  }
 
 
-function appendLink(urlID) {
-  $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
-  $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
-}
+  function appendLink(urlID) {
+    $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
+    $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
+  }
 
   submitCreateButton();
   submitUserButton();
@@ -117,10 +117,16 @@ function appendLink(urlID) {
 
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
+    $(".page-header").slideToggle(200, "swing");
     $("#votepage").slideToggle(200, "swing");
     $("#thankyou").slideToggle(200, "swing");
-
+    $("#seeresults").slideToggle(200, "swing");
   });
 
+  $("#resultsbutton").click(function(){
+    const url_id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+    window.location.href=`http://localhost:8080/result/${url_id}`;
+
+  })
 
 });
