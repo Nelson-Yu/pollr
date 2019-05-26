@@ -14,11 +14,23 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
+
+const borda       = require('./db/borda_count.js');
+
+const mailgun = require("mailgun-js");
+const DOMAIN = process.env.DOMAIN;
+const mg = mailgun({apiKey: process.env.API_KEY, domain: DOMAIN});
+
+// $(function (){
+// 	function appendLink(urlID) {
+// 		$("#votelinkbox").append("<a href=localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
+// 		$("#resultlinkbox").append("<a href=localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
+// 	}
+	
 // const cookieSession = require('cookie-session');
 // app.use(cookieSession({
 //   keys: ['secretkey']
 // }));
-
 
 
 // Seperated Routes for each Resource
@@ -49,6 +61,7 @@ app.use("/api/users", usersRoutes(knex));
 // let appendVoteLink =
 
 let pollID;
+let urlID;
 
 ////////////// Functions ///////////////////
 
@@ -97,6 +110,45 @@ app.get("/result/:id", (req, res) => {
     .then(() => res.render('result', templateVars));
 });
 
+app.get("/links",(req,res)=>{
+console.log(urlID);
+ 	const data = {
+		from: `Pollr <noreply@${DOMAIN}>`,
+		to: 'betttyquu@gmail.com',
+		subject: 'Pollr - Your new poll links',
+    text: `
+    To the take the poll:
+    http://localhost:8080/vote/${urlID}
+    
+    To view result:
+    http://localhost:8080/result/${urlID}
+    `
+	};
+	mg.messages().send(data, function (error, body) {
+		if (error) {
+			console.log(error);
+		}
+		console.log(body);
+	});
+
+});
+
+app.get("/update", (req, res) => {
+  const data = {
+		from: `Pollr <noreply@${DOMAIN}>`,
+		to: 'betttyquu@gmail.com',
+		subject: 'Pollr - Your new poll has an update',
+    text: `    
+    To see your updated result:
+    http://localhost:8080/result/${urlID}`
+  };
+  mg.messages().send(data, function (error, body) {
+		if (error) {
+			console.log(error);
+		}
+		console.log(body);
+	});
+})
 
 ////////////// POST routes ///////////////////
 
@@ -107,7 +159,7 @@ app.post("/create", (req, res) => {
   options.push(req.body.option3);
   options.push(req.body.option4);
   options.push(req.body.option5);
-  const urlID = generateRandomString();
+  urlID = generateRandomString();
 
   knex('polls')
     .insert({question: req.body.question, url_id: urlID})
@@ -115,7 +167,7 @@ app.post("/create", (req, res) => {
     .then((id) => {
       let optionsArr = []
       options.forEach(function(element){
-        optionsArr.push({ poll_id: id[0], text: element})
+        optionsArr.push({ poll_id: id[0], text: element, rank: 0})
       })
         console.log("The id is: " + optionsArr);
         pollID = id[0]
@@ -128,7 +180,6 @@ app.post("/create", (req, res) => {
     });
 });
 
-
 app.post("/user", (req, res) => {
   // console.log("pollID in /user is " + pollID)
 
@@ -140,16 +191,20 @@ app.post("/user", (req, res) => {
     });
 });
 
+app.post("/vote/:id", (req, res) => {
+  const order = req.body.result;
+  console.log(order);
+
+    knex('options').leftJoin('polls', 'polls.id', 'options.poll_id')
+      .where('url_id', req.params.id)
+      .then ((results) => {
+        return borda.updateRanks(order);
+        console.log(results);
+      })
+})
+
+////////////// LISTEN PORT ///////////////////
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
-
-
-
-
-
-
-
-
-

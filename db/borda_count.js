@@ -10,44 +10,46 @@ const knex = require('knex')({
 });
 
 // sorting rank by highest first
-const sorted = function() {
-  knex.select('rank', 'text').from('options').orderBy('rank', 'desc')//.where({ poll_id: 1 })
-  .asCallback(function (err, rows) {
-    if (err) return console.error(err);
-    console.log(rows);
-  });
-}
+// const sorted = function() {
+//   knex.select('rank', 'text').from('options').orderBy('rank', 'desc')//.where({ poll_id: 1 })
+//   .asCallback(function (err, rows) {
+//     if (err) return console.error(err);
+//     console.log(rows);
+//   });
+// }
 
 function updateRanks(optionIDs) {
   const promises = optionIDs.map((element, index) => {
     let amount = optionIDs.length - index;
-    return knex('options').increment('rank', amount).where({id: element})
-    .returning(['rank','id'])
+    return knex('options')
+      .where('id', element)
+      .increment('rank', amount)
   })
   return Promise.all(promises);
 }
 
 // updating ranks
-knex.select('rank', 'text', 'id').from('options').orderBy('id')//.where({ poll_id: 1 })
-  .asCallback(function (err, rows) {
-    if (err) return console.error(err);
-    let submission = [
-      rows[3].id,
-      rows[4].id,
-      rows[1].id,
-      rows[2].id,
-      rows[0].id,
-    ]
-    updateRanks(submission).then(results => {
-      console.log(results);
-      sorted();
-    })
+// knex.select('rank', 'text', 'id').from('options').orderBy('id')//.where({ poll_id: 1 })
+//   .asCallback(function (err, rows) {
+//     if (err) return console.error(err);
+//     let submission = [
+//       rows[3].id,
+//       rows[4].id,
+//       rows[1].id,
+//       rows[2].id,
+//       rows[0].id,
+//     ]
+//     updateRanks(submission).then(results => {
+//       console.log(results);
+//       sorted();
+//     })
 
 
-    .catch(err => {
-      // ...
-    })
-    })
+//     .catch(err => {
+//       // ...
+//     })
+//     })
 
-
-  
+module.exports = {
+  updateRanks
+}

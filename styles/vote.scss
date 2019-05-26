@@ -1,6 +1,13 @@
+$app-background-color: #f9fbfc;
+$font-stack: 'Open Sans', sans-serif;
+$primary-blue: #4749a0;
+$primary-orange: #ff7e5d;
+$primary-white-font: #ffffff;
+
+
 body {
-  background-color: #f9fbfc;
-  font-family: 'Open Sans', sans-serif;
+  background-color: $app-background-color;
+  font-family: $font-stack;
 }
 
 header h1 {
@@ -8,7 +15,7 @@ header h1 {
   font-size: 2em;
   margin-top: 10px;
   margin-left: 15px;
-  color: #4749a0;
+  color: $primary-blue;
 }
 
 main section {
@@ -16,7 +23,7 @@ main section {
   width: 60%;
   height: 90px;
   text-align: center;
-  background-color: #ff7e5d;
+  background-color: $primary-orange;
   border-radius: 20px;
   -webkit-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
   -moz-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
@@ -24,9 +31,9 @@ main section {
 }
 
 main section input {
-  background-color: #ff7e5d;
+  background-color: $primary-orange;
   border: 0px;
-  color: #ffffff;
+  color: $primary-white-font;
   font-size: 1.4em;
   font-weight: 600;
   display: inline-block;
@@ -47,12 +54,12 @@ main .page-header p {
   margin: auto;
   width: 70%;
   text-align: center;
-  color: #4749a0;
+  color: $primary-blue;
   font-size: 1em;
 }
 
 main #votepage {
-  margin: 0% 25%;
+  margin: 0% 15%;
 }
 
 main #sortable {
@@ -62,25 +69,25 @@ main #sortable {
   list-style-type: none;
 }
 
-main #crown {
-  font-size: 300%;
-  height: auto;
-  margin: 0%;
-  text-align: center;
-  height: 60px;
-}
+// main #crown {
+//   font-size: 300%;
+//   height: auto;
+//   margin: 0%;
+//   text-align: center;
+//   height: 60px;
+// }
 
 main .option {
   text-align: center;
   margin: auto;
-  margin-bottom: 1.5em;
+  margin-top: 1.5em;
   margin-right: 0%;
   margin-left: 0%;
   padding: 0.5em;
   border-radius: 20px;
-  left: 25%;
-  background-color: #ff7e5d;
-  color: #ffffff;
+  left: 15%;
+  background-color: $primary-orange;
+  color: $primary-white-font;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
@@ -89,6 +96,7 @@ main .option {
 main #votepage #submitvotebutton {
   text-align: center;
   margin-left: 25%;
+  margin-top: 1.5em;
   margin-bottom: 10px;
   border-radius: 20px;
   border-width: 0px;
@@ -96,8 +104,8 @@ main #votepage #submitvotebutton {
   width: 50%;
   height: 60px;
   padding: 5px;
-  background-color: #4749a0;
-  color: #ffffff;
+  background-color: $primary-blue;
+  color: $primary-white-font;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
@@ -108,5 +116,26 @@ main #thankyou {
   font-size: 1.5em;
   text-align: center;
   margin: auto;
-  color: #4749a0;
+  color: $primary-blue;
+}
+
+main #seeresults {
+  display: none;
+  margin: 0% 15%;
+  text-align: center;
+}
+
+main #resultsbutton {
+  margin: auto;
+  text-align: center;
+  font-size: 1.5em;
+  width: 50%;
+  border-radius: 20px;
+  padding: 5px;
+  height: 60px;
+  background-color: $primary-orange;
+  color: $primary-white-font;
+  -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
 }

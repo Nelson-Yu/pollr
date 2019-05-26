@@ -1,6 +1,14 @@
+$app-background-color: #f9fbfc;
+$font-stack: 'Open Sans', sans-serif;
+$primary-blue: #4749a0;
+$primary-orange: #ff7e5d;
+$primary-white-font: #ffffff;
+$link-box-color: #fdf3e6;
+
+
 body {
-  background-color: #f9fbfc;
-  font-family: 'Open Sans', sans-serif;
+  background-color: $app-background-color;
+  font-family: $font-stack;
 }
 
 header h1 {
@@ -8,7 +16,7 @@ header h1 {
   font-size: 2em;
   margin-top: 10px;
   margin-left: 15px;
-  color: #4749a0;
+  color: $primary-blue;
 }
 
 main div p {
@@ -17,34 +25,33 @@ main div p {
   margin-bottom: 70px;
   width: 70%;
   text-align: center;
-  color: #4749a0;
+  color: $primary-blue;
   font-size: 1.4em;
 }
 
 main section {
   margin: auto;
   width: 60%;
-  height: 90px;
+}
+
+main section #startbutton {
+  margin: auto;
   text-align: center;
-  background-color: #ff7e5d;
+  height: 100px;
+  width: 100%;
+  background-color: $primary-orange;
+  color: $primary-white-font;
+  font-size: 1.4em;
+  font-weight: 600;
+  display: inline-block;
   border-radius: 20px;
   -webkit-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
   -moz-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
   box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
 }
 
-main section input {
-  background-color: #ff7e5d;
-  border: 0px;
-  color: #ffffff;
-  font-size: 1.4em;
-  font-weight: 600;
-  display: inline-block;
-  margin-top: 25px;
-}
-
 main #createpoll {
-  /*background-color: #fdf3e6;*/
+  /*background-color: $link-box-color;*/
   margin: auto;
   width: 80%;
   /*height: 300px;*/
@@ -62,7 +69,7 @@ main #createpoll .question {
   border-width: 0px;
   font-size: 1.3em;
   width: 90%;
-  color: #4749a0;
+  color: $primary-blue;
   font-weight: 400;
   padding: 10px;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
@@ -71,7 +78,7 @@ main #createpoll .question {
 }
 
 main #createpoll .question::placeholder {
- /*color: #ff7e5d;*/
+ /*color: $primary-orange;*/
  opacity:0.8;
 }
 
@@ -107,8 +114,8 @@ main #createpoll .submit {
   width: 60%;
   height: 60px;
   padding: 5px;
-  background-color: #ff7e5d;
-  color: #ffffff;
+  background-color: $primary-orange;
+  color: $primary-white-font;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
@@ -133,7 +140,7 @@ main #userpage .userinput {
   border-width: 0px;
   font-size: 1.3em;
   width: 90%;
-  color: #4749a0;
+  color: $primary-blue;
   font-weight: 400;
   padding: 10px;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(71, 73, 160, 0.5);
@@ -167,8 +174,8 @@ main #userpage .submit {
   width: 60%;
   height: 60px;
   padding: 5px;
-  background-color: #ff7e5d;
-  color: #ffffff;
+  background-color: $primary-orange;
+  color: $primary-white-font;
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
@@ -186,7 +193,7 @@ main #adminpage {
 }
 
 #adminpage .link {
-  background-color: #ff7e5d;
+  background-color: $primary-orange;
   margin: auto;
   width: 90%;
   height: 130px;
@@ -206,7 +213,7 @@ main #adminpage {
   text-align: left;
   font-weight: 600;
   font-size: 0.9em;
-  color: #fdf3e6;
+  color: $link-box-color;
   padding-top: 10px;
   margin-left: 25px;
   margin-bottom: 0px;
@@ -214,7 +221,7 @@ main #adminpage {
 }
 
 #adminpage .linkbox {
-  background-color: #fdf3e6;
+  background-color: $link-box-color;
   width: 90%;
   height: 25px;
   border-radius: 20px;
@@ -228,7 +235,7 @@ main #adminpage {
   margin: auto;
   margin-top: 3px;
   font-size: .8em;
-  color: #ff7e5d;
+  color: $primary-orange;
   text-align: left;
   padding-left: 10px;
 }
@@ -242,14 +249,14 @@ main #adminpage {
   margin-left: 25px;
   padding-bottom: 10px;
   text-align: left;
-  color: #fdf3e6;
+  color: $link-box-color;
 }
 
 #adminpage #resultlink h3 {
   text-align: left;
   font-weight: 600;
   font-size: 0.9em;
-  color: #fdf3e6;
+  color: $link-box-color;
   padding-top: 10px;
   margin-left: 25px;
   margin-bottom: 0px;
@@ -258,6 +265,40 @@ main #adminpage {
   box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
 }
 
+#adminpage #socialmedia {
+  margin: auto;
+  width: 90%;
+}
 
+#adminpage #socialmedia p {
+  text-align: center;
+  font-weight: 600;
+  font-size: .9em;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: $primary-blue;
+}
+#adminpage .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
 
+#adminpage .fa-facebook {
+  background: #3B5998;
+  color: white;
+}
 
+#adminpage .fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+#adminpage .fa-instagram {
+  background: #DD2A7B;
+  color: white;
+}
