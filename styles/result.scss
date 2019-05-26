@@ -1,6 +1,13 @@
+$app-background-color: #f9fbfc;
+$font-stack: 'Open Sans', sans-serif;
+$primary-blue: #4749a0;
+$primary-orange: #ff7e5d;
+$primary-white-font: #ffffff;
+
+
 body {
-  background-color: #f9fbfc;
-  font-family: 'Open Sans', sans-serif;
+  background-color: $app-background-color;
+  font-family: $font-stack;
 }
 
 header h1 {
@@ -8,7 +15,7 @@ header h1 {
   font-size: 2em;
   margin-top: 10px;
   margin-left: 15px;
-  color: #4749a0;
+  color: $primary-blue;
 }
 
 main form {
@@ -20,15 +27,15 @@ main form {
 }
 
 form h3{
-  background-color: #f9fbfc;
-  color: #4749a0;
+  background-color: $app-background-color;
+  color: $primary-blue;
   margin: auto;
   margin-top: 1em;
   margin-bottom: 20px;
 }
 
 #view{
-  color: #4749a0;
+  color: $primary-blue;
   padding-top:10px
 }
 

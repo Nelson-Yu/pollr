@@ -11,8 +11,6 @@
 
 $(document).ready(function() {
 
- const submitCreateButton = () => {
-  console.log("submitCreateButton function run")
   $("#createpollbutton").click(function(event) {
     let options = $("#createpoll").serialize();
     console.log("submitCreateButton function finished "+ options);
@@ -32,8 +30,8 @@ $(document).ready(function() {
       }
     })
   });
- }
 
+<<<<<<< HEAD
   const submitUserButton = () => {
     console.log("submitCreateButton function run")
     $("#createuserbutton").click(function (event) {
@@ -71,6 +69,12 @@ $(document).ready(function() {
       }
     })
   }
+=======
+
+  $("#createuserbutton").click(function(event) {
+    let userInfo = $("#userpage").serialize();
+    console.log("submitCreateButton function finished"+ userInfo);
+>>>>>>> 9a3dc8aef0e989be0fea42599929ad920c18aba8
 
   function updateResults() {
     const resultLink = $("#resultlink").serialize();
@@ -86,6 +90,7 @@ $(document).ready(function() {
         console.log("we are in an error", err);
       }
     })
+
   }
 
 
@@ -95,8 +100,6 @@ function appendLink(urlID) {
   $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
 
-  submitCreateButton();
-  submitUserButton();
 
 // Landing page functionality/event handlers
 // Clicking 'start' button slide toggles away front page and slides in create poll form
@@ -153,11 +156,17 @@ function appendLink(urlID) {
 
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
+    $(".page-header").slideToggle(200, "swing");
     $("#votepage").slideToggle(200, "swing");
     $("#thankyou").slideToggle(200, "swing");
-
+    $("#seeresults").slideToggle(200, "swing");
   });
 
+  $("#resultsbutton").click(function(){
+    const url_id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+    window.location.href=`http://localhost:8080/result/${url_id}`;
+
+  })
 
 // $("#submitvotebutton").click(function(){
 //   $("#votepage").slideToggle(200, "swing");
