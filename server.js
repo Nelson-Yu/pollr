@@ -146,18 +146,8 @@ app.post("/vote/:id", (req, res) => {
       })
 })
 
-
 ////////////// LISTEN PORT ///////////////////
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
-
-
-
-
-
-
-
-
-

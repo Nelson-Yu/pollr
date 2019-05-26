@@ -11,8 +11,6 @@
 
 $(document).ready(function() {
 
- const submitCreateButton = () => {
-  console.log("submitCreateButton function run")
   $("#createpollbutton").click(function(event) {
     let options = $("#createpoll").serialize();
     console.log("submitCreateButton function finished "+ options);
@@ -32,10 +30,8 @@ $(document).ready(function() {
       }
     })
   });
- }
 
-  const submitUserButton = () => {
-  console.log("submitCreateButton function run")
+
   $("#createuserbutton").click(function(event) {
     let userInfo = $("#userpage").serialize();
     console.log("submitCreateButton function finished"+ userInfo);
@@ -53,16 +49,11 @@ $(document).ready(function() {
       }
     })
   });
- }
-
 
   function appendLink(urlID) {
     $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
     $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
   }
-
-  submitCreateButton();
-  submitUserButton();
 
 // Landing page functionality/event handlers
 // Clicking 'start' button slide toggles away front page and slides in create poll form
