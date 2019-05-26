@@ -35,25 +35,59 @@ $(document).ready(function() {
  }
 
   const submitUserButton = () => {
-  console.log("submitCreateButton function run")
-  $("#createuserbutton").click(function(event) {
-    let userInfo = $("#userpage").serialize();
-    console.log("submitCreateButton function finished"+ userInfo);
+    console.log("submitCreateButton function run")
+    $("#createuserbutton").click(function (event) {
+      let userInfo = $("#userpage").serialize();
+      console.log("submitCreateButton function finished" + userInfo);
 
+      $.ajax({
+        method: "POST",
+        url: "/user",
+        data: userInfo,
+        dataType: "json",
+        success: function (result) {
+          console.log("it was success ", result);
+        },
+        error: function (err) {
+          console.log("we are in an error", err);
+        }
+      })
+    });
+  }
+
+  function sendLinks() {
+    const resultLink = $("#resultlink").serialize();
+    const voteLink = $("#polllink").serialize();
     $.ajax({
-      method: "POST",
-      url: "/user",
-      data: userInfo,
+      method: "GET",
+      url: "/links",
+      data: resultLink + voteLink,
       dataType: "json",
-      success: function(result){
-        console.log("it was success ",result);
+      success: function (result) {
+        console.log("it was success ", result);
       },
-      error: function(err){
-        console.log("we are in an error",err);
+      error: function (err) {
+        console.log("we are in an error", err);
       }
     })
-  });
- }
+  }
+
+  function updateResults() {
+    const resultLink = $("#resultlink").serialize();
+    $.ajax({
+      method: "GET",
+      url: "/update",
+      data: resultLink,
+      dataType: "json",
+      success: function (result) {
+        console.log("it was success ", result);
+      },
+      error: function (err) {
+        console.log("we are in an error", err);
+      }
+    })
+  }
+
 
 
 function appendLink(urlID) {
@@ -83,15 +117,17 @@ function appendLink(urlID) {
   $("#createuserbutton").click(function(){
     $("#userpage").slideToggle(200, "swing");
     $("#adminpage").slideToggle(200, "swing");
+    sendLinks();
     // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
   });
 
 // Vote page functionality
 // Drag and droppable options only vertically
-
   $("#sortable").sortable({
     axis: 'y'
   });
+
+
 
   $("#sortable").disableSelection();
 
@@ -121,6 +157,17 @@ function appendLink(urlID) {
     $("#thankyou").slideToggle(200, "swing");
 
   });
+
+
+// $("#submitvotebutton").click(function(){
+//   $("#votepage").slideToggle(200, "swing");
+//   $("#thankyou").slideToggle(200, "swing");
+
+// });
+
+$("#submitvotebutton").click(function(){
+  updateResults();
+})
 
 
 });
