@@ -48,7 +48,6 @@ $(document).ready(function() {
         data: userInfo,
         dataType: "json",
         success: function (result) {
-          sendLinks();
           console.log("it was success ", result);
         },
         error: function (err) {
@@ -62,7 +61,7 @@ $(document).ready(function() {
     const resultLink = $("#resultlink").serialize();
     const voteLink = $("#polllink").serialize();
     $.ajax({
-      method: "POST",
+      method: "GET",
       url: "/links",
       data: resultLink + voteLink,
       dataType: "json",
@@ -74,6 +73,24 @@ $(document).ready(function() {
       }
     })
   }
+
+  function updateResults() {
+    const resultLink = $("#resultlink").serialize();
+    // const voteLink = $("#polllink").serialize();
+    $.ajax({
+      method: "GET",
+      url: "/update",
+      data: resultLink,
+      dataType: "json",
+      success: function (result) {
+        console.log("it was success ", result);
+      },
+      error: function (err) {
+        console.log("we are in an error", err);
+      }
+    })
+  }
+
 
 function appendLink(urlID) {
   $("#votelinkbox").append("<a href=localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
@@ -102,6 +119,11 @@ $("#createuserbutton").click(function(){
   // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
 });
 
+$("#createuserbutton").click(function (){
+  sendLinks()
+})
+
+
 
 
 $("#sortable").sortable({
@@ -113,6 +135,9 @@ $("#sortable").disableSelection();
 $("#submitvotebutton").click(function(){
   $("#votepage").slideToggle(200, "swing");
   $("#thankyou").slideToggle(200, "swing");
-
 });
+
+$("#submitvotebutton").click(function(){
+  updateResults();
+})
 });
