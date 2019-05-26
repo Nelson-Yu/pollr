@@ -1,36 +1,38 @@
-// require('dotenv').config();
-// const knex = require('knex')({
-//   client: 'pg',
-//   connection: {
-//     host : process.env.DB_HOST,
-//     user : process.env.DB_USER,
-//     password : process.env.DB_PASS,
-//     database : process.env.DB_NAME
-//   }
-// });
+// // require('dotenv').config();
+// // const knex = require('knex')({
+// //   client: 'pg',
+// //   connection: {
+// //     host : process.env.DB_HOST,
+// //     user : process.env.DB_USER,
+// //     password : process.env.DB_PASS,
+// //     database : process.env.DB_NAME
+// //   }
+// // });
 
 $(document).ready(function() {
 
-  $("#createpollbutton").click(function(event) {
-    let options = $("#createpoll").serialize();
-    console.log("submitCreateButton function finished "+ options);
+  const submitCreateButton = () => {
+    console.log("submitCreateButton function run")
+    $("#createpollbutton").click(function(event) {
+      let options = $("#createpoll").serialize();
+      console.log("submitCreateButton function finished "+ options);
 
-    $.ajax({
-      method: "POST",
-      url: "/create",
-      data: options,
-      dataType: "json",
-      success: function(result){
-        // console.log("it was success ", result);
-        // console.log("Here is the ID: " + result.urlID);
-        appendLink(result.urlID);
-      },
-      error: function(err){
-        console.log("we are in an error",err);
-      }
-    })
-  });
-
+      $.ajax({
+        method: "POST",
+        url: "/create",
+        data: options,
+        dataType: "json",
+        success: function(result){
+          // console.log("it was success ", result);
+          // console.log("Here is the ID: " + result.urlID);
+          appendLink(result.urlID);
+        },
+        error: function(err){
+          console.log("we are in an error",err);
+        }
+      })
+    });
+  }
 
   const submitUserButton = () => {
     console.log("submitCreateButton function run")
@@ -53,6 +55,7 @@ $(document).ready(function() {
     });
   }
 
+//send new poll to admin email
   function sendLinks() {
     const resultLink = $("#resultlink").serialize();
     const voteLink = $("#polllink").serialize();
@@ -70,12 +73,12 @@ $(document).ready(function() {
     })
   }
 
-
   $("#createuserbutton").click(function(event) {
     let userInfo = $("#userpage").serialize();
     console.log("submitCreateButton function finished"+ userInfo);
   })
 
+  // send poll updates to admin email
   function updateResults() {
     const resultLink = $("#resultlink").serialize();
     $.ajax({
@@ -93,13 +96,14 @@ $(document).ready(function() {
 
   }
 
-function appendLink(urlID) {
-  $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
-  $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
-}
+  function appendLink(urlID) {
+    $("#votelinkbox").append("<a href=http://localhost:8080/vote/" + urlID + ">localhost:8080/vote/" + urlID + "</a>")
+    $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
+  }
 
-submitCreateButton();
-submitUserButton();
+  submitCreateButton();
+  submitUserButton();
+
 
 // Landing page functionality/event handlers
 // Clicking 'start' button slide toggles away front page and slides in create poll form
@@ -143,9 +147,12 @@ $("#createuserbutton").click(function(){
     axis: 'y'
   });
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 08c4ee1607f17c159d79771b2a10b8fb0e753fcf
   $("#sortable").disableSelection();
 
 // Submits sortable order into an array and posts it to be requested in server.js
@@ -171,8 +178,6 @@ $("#createuserbutton").click(function(){
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
     $(".page-header").slideToggle(200, "swing");
-    $("#votepage").slideToggle(200, "swing");
-    $("#thankyou").slideToggle(200, "swing");
     $("#seeresults").slideToggle(200, "swing");
   });
 
@@ -182,15 +187,22 @@ $("#createuserbutton").click(function(){
 
   })
 
+<<<<<<< HEAD
 $("#submitvotebutton").click(function(){
   $("#votepage").slideToggle(400, "swing");
   $("#thankyou").slideToggle(400, "swing");
 
 });
+=======
+  $("#submitvotebutton").click(function(){
+    $("#votepage").slideToggle(200, "swing");
+    $("#thankyou").slideToggle(200, "swing");
+  });
+>>>>>>> 08c4ee1607f17c159d79771b2a10b8fb0e753fcf
 
-$("#submitvotebutton").click(function(){
-  updateResults();
-})
+  $("#submitvotebutton").click(function(){
+    updateResults();
+  })
 
 
 });
