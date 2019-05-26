@@ -31,7 +31,7 @@ $(document).ready(function() {
     })
   });
 
-<<<<<<< HEAD
+
   const submitUserButton = () => {
     console.log("submitCreateButton function run")
     $("#createuserbutton").click(function (event) {
@@ -69,12 +69,12 @@ $(document).ready(function() {
       }
     })
   }
-=======
+
 
   $("#createuserbutton").click(function(event) {
     let userInfo = $("#userpage").serialize();
     console.log("submitCreateButton function finished"+ userInfo);
->>>>>>> 9a3dc8aef0e989be0fea42599929ad920c18aba8
+  })
 
   function updateResults() {
     const resultLink = $("#resultlink").serialize();
@@ -100,6 +100,8 @@ function appendLink(urlID) {
   $("#resultlinkbox").append("<a href=http://localhost:8080/result/" + urlID + ">localhost:8080/result/" + urlID + "</a>")
 }
 
+submitCreateButton();
+submitUserButton();
 
 // Landing page functionality/event handlers
 // Clicking 'start' button slide toggles away front page and slides in create poll form
@@ -168,11 +170,11 @@ function appendLink(urlID) {
 
   })
 
-// $("#submitvotebutton").click(function(){
-//   $("#votepage").slideToggle(200, "swing");
-//   $("#thankyou").slideToggle(200, "swing");
+$("#submitvotebutton").click(function(){
+  $("#votepage").slideToggle(200, "swing");
+  $("#thankyou").slideToggle(200, "swing");
 
-// });
+});
 
 $("#submitvotebutton").click(function(){
   updateResults();
