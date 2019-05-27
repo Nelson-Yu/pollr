@@ -16,6 +16,10 @@ const knexLogger  = require('knex-logger');
 
 const borda       = require('./db/borda_count.js');
 
+// const mailgun = require("mailgun-js");
+// const DOMAIN = process.env.DOMAIN;
+// const mg = mailgun({apiKey: process.env.API_KEY, domain: DOMAIN});
+
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 
@@ -63,7 +67,7 @@ app.get('/vote/:id', (req, res) => {
   let templateVars = {};
 
   knex
-    .select('options.id', 'polls.question', 'options.text', 'polls.url_id')
+    .select('options.id', 'polls.admin_name', 'polls.question', 'options.text', 'polls.url_id')
     .from('options')
     .leftJoin('polls', 'polls.id', 'options.poll_id')
     .where('url_id', req.params.id)
@@ -92,6 +96,45 @@ app.get("/result/:id", (req, res) => {
     .then(() => res.render('result', templateVars));
 });
 
+// app.get("/links",(req,res)=>{
+// console.log(urlID);
+//   const data = {
+//     from: `Pollr <noreply@${DOMAIN}>`,
+//     to: 'betttyquu@gmail.com',
+//     subject: 'Pollr - Your new poll links',
+//     text: `
+//     To the take the poll:
+//     http://localhost:8080/vote/${urlID}
+
+//     To view result:
+//     http://localhost:8080/result/${urlID}
+//     `
+//   };
+//   mg.messages().send(data, function (error, body) {
+//     if (error) {
+//       console.log(error);
+//     }
+//     console.log(body);
+//   });
+
+// });
+
+// app.get("/update", (req, res) => {
+//   const data = {
+//     from: `Pollr <noreply@${DOMAIN}>`,
+//     to: 'betttyquu@gmail.com',
+//     subject: 'Pollr - Your new poll has an update',
+//     text: `
+//     To see your updated result:
+//     http://localhost:8080/result/${urlID}`
+//   };
+//   mg.messages().send(data, function (error, body) {
+//     if (error) {
+//       console.log(error);
+//     }
+//     console.log(body);
+//   });
+// })
 
 ////////////// POST routes ///////////////////
 

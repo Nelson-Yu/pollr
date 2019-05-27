@@ -69,14 +69,6 @@ main #sortable {
   list-style-type: none;
 }
 
-// main #crown {
-//   font-size: 300%;
-//   height: auto;
-//   margin: 0%;
-//   text-align: center;
-//   height: 60px;
-// }
-
 main .option {
   text-align: center;
   margin: auto;
@@ -116,12 +108,20 @@ main #thankyou {
   font-size: 1.5em;
   text-align: center;
   margin: auto;
+  margin-top: 1em;
   color: $primary-blue;
+}
+
+main #thankyou p {
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 main #seeresults {
   display: none;
-  margin: 0% 15%;
+  margin: 15%;
   text-align: center;
 }
 
