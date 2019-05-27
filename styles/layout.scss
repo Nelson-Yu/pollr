@@ -194,10 +194,14 @@ main #userpage .submit:hover {
   transform: scale(1.05);
 }
 
+main #userpage .submit:focus {
+  outline: none;
+}
+
 main #adminpage {
   margin: auto;
   width: 100%;
-  height: 300px;
+  height: 600px;
   border-radius: 20px;
   margin-top: 70px;
   text-align: center;

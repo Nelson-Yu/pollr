@@ -48,6 +48,9 @@ main .page-header {
 main .page-header h3 {
   text-align: center;
   margin: auto;
+  color: $primary-blue;
+  font-size: 1.6em;
+  margin-top: 50px;
 }
 
 main .page-header p {
@@ -55,7 +58,7 @@ main .page-header p {
   width: 70%;
   text-align: center;
   color: $primary-blue;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 main #votepage {
@@ -109,6 +112,15 @@ main #votepage #submitvotebutton {
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  transition: all .2s ease-in-out;
+}
+
+main #votepage #submitvotebutton:hover {
+  transform: scale(1.05);
+}
+
+main #votepage #submitvotebutton:focus {
+  outline: none;
 }
 
 main #thankyou {
@@ -117,6 +129,7 @@ main #thankyou {
   text-align: center;
   margin: auto;
   color: $primary-blue;
+  margin-top: 180px;
 }
 
 main #seeresults {
@@ -131,6 +144,7 @@ main #resultsbutton {
   font-size: 1.5em;
   width: 50%;
   border-radius: 20px;
+  border-width: 0px;
   padding: 5px;
   height: 60px;
   background-color: $primary-orange;
@@ -138,4 +152,13 @@ main #resultsbutton {
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  transition: all .2s ease-in-out;
+}
+
+main #resultsbutton:hover {
+  transform: scale(1.05);
+}
+
+main #resultsbutton:focus {
+  outline: none;
 }

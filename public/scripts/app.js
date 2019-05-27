@@ -123,7 +123,7 @@ $("#createpollbutton").click(function(){
 
 $("#createuserbutton").click(function(){
   $("#userpage").slideToggle(400, "swing");
-  $("#adminpage").slideToggle(400, "swing");
+  $("#adminpage").slideToggle(200, "swing");
   // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
 });
 // Clicking 'create poll' button slide toggles away poll form and slides in admin form
@@ -159,8 +159,8 @@ $("#createuserbutton").click(function(){
 
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
-    $(".page-header").slideToggle(200, "swing");
-    $("#seeresults").slideToggle(200, "swing");
+    $(".page-header").slideToggle(1000, "swing");
+    $("#seeresults").slideToggle(400, "swing");
   });
 
   $("#resultsbutton").click(function(){
