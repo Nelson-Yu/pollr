@@ -45,9 +45,15 @@ main section #startbutton {
   font-weight: 600;
   display: inline-block;
   border-radius: 20px;
+  border-width: 0px;
   -webkit-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
   -moz-box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
   box-shadow: 0px 23px 46px -27px rgba(255, 126, 93, 0.7);
+  transition: all .2s ease-in-out;
+}
+
+main section #startbutton:hover {
+  transform: scale(1.05);
 }
 
 main #createpoll {
@@ -119,6 +125,11 @@ main #createpoll .submit {
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  transition: all .2s ease-in-out;
+}
+
+main #createpoll .submit:hover {
+  transform: scale(1.05);
 }
 
 main #userpage {
@@ -160,9 +171,6 @@ main #userpage #name {
   margin-top: 80px;
 }
 
-main #userpage #name {
-
-}
 
 main #userpage .submit {
   margin: auto;
@@ -179,6 +187,11 @@ main #userpage .submit {
   -webkit-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 17px -10px rgba(0, 0, 0, 0.5);
+  transition: all .2s ease-in-out;
+}
+
+main #userpage .submit:hover {
+  transform: scale(1.05);
 }
 
 main #adminpage {

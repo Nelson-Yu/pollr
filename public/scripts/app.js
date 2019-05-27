@@ -127,32 +127,14 @@ $("#createuserbutton").click(function(){
   // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
 });
 // Clicking 'create poll' button slide toggles away poll form and slides in admin form
-  $("#createpollbutton").click(function(){
-    $("#createpoll").slideToggle(200, "swing");
-    $("#userpage").slideToggle(200, "swing");
-    $("#name").select();
-  });
 
 // Clicking 'submit' button slide toggles away admin form and slides in admin results/vote links
-  $("#createuserbutton").click(function(){
-    $("#userpage").slideToggle(200, "swing");
-    $("#adminpage").slideToggle(200, "swing");
-    sendLinks();
-    // $("#votelinkbox").append("<a href=\"http://design.optimus.com/projects?currentPage=2\">Next Page</a>")
-  });
 
 // Vote page functionality
 // Drag and droppable options only vertically
   $("#sortable").sortable({
     axis: 'y'
   });
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 08c4ee1607f17c159d79771b2a10b8fb0e753fcf
   $("#sortable").disableSelection();
 
 // Submits sortable order into an array and posts it to be requested in server.js
@@ -187,18 +169,12 @@ $("#createuserbutton").click(function(){
 
   })
 
-<<<<<<< HEAD
 $("#submitvotebutton").click(function(){
   $("#votepage").slideToggle(400, "swing");
   $("#thankyou").slideToggle(400, "swing");
 
 });
-=======
-  $("#submitvotebutton").click(function(){
-    $("#votepage").slideToggle(200, "swing");
-    $("#thankyou").slideToggle(200, "swing");
-  });
->>>>>>> 08c4ee1607f17c159d79771b2a10b8fb0e753fcf
+
 
   $("#submitvotebutton").click(function(){
     updateResults();
