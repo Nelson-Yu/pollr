@@ -159,7 +159,7 @@ $("#createuserbutton").click(function(){
 
 // Clicking Vote button slide toggles away ranker and slides in thank you message
   $("#submitvotebutton").click(function(){
-    $(".page-header").slideToggle(1000, "swing");
+    $(".page-header").slideToggle(400, "swing");
     $("#seeresults").slideToggle(400, "swing");
   });
 
