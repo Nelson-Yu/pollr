@@ -49,3 +49,10 @@ Use Pollr to create a poll on what to eat tonight. Pollr uses [Borda Count](http
 - Morgan
 - Node-Sass-Middleware
 - PostgreSQL
+
+## Authors
+
+Developed By:
+- Turner Schumann [@turnerschumann](https://github.com/turnerschumann)
+- Betty Qu [@betttyquu](https://github.com/betttyquu)
+- Nelson Yu [@Nelson-Yu](https://github.com/Nelson-Yu)
