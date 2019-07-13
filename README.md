@@ -1,14 +1,20 @@
-# Pollr
+Pollr
+============= 
 
-Pollr is a decision-making app that creates polls for a group to collectively make a democratic decision.
+#### Contributors: [Nelson Yu](https://github.com/Nelson-Yu), [Betty Qu](https://github.com/betttyquu), [Turner Schumann](https://github.com/turnerschumann)
 
-## Problem
+
+## Overview
+
+Pollr is a decision making application designed for users to agree on a democratic decision.
+
+#### Problem
 
 Suppose your group is stubbornly debating on who is the best Avenger. Everyone have their own separate opinions and ranking on who is the best. No consensus can be made amongst your group.
 
-## Solution
+#### Solution
 
-Use Pollr to create a poll on what to eat tonight. Pollr uses [Borda Count](https://en.wikipedia.org/wiki/Borda_count) to allocate points to each option based on the rank given by the voter. Once everyone in your group participates in the poll, check the results to see the top choice.
+Use Pollr to create a poll on who is the best Avenger. Pollr uses [Borda Count](https://en.wikipedia.org/wiki/Borda_count) to allocate points to each option based on the rank given by the voter. Once everyone in your group participates in the poll, check the results to see the top choice.
 
 ## Final Product
 !["Screenshot of Pollr Landing Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/landing.png)
@@ -16,6 +22,35 @@ Use Pollr to create a poll on what to eat tonight. Pollr uses [Borda Count](http
 !["Screenshot of Pollr Submit User Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/admin-register.png)
 !["Screenshot of Pollr Admin Links Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/admin-page.png)
 !["Screenshot of Pollr Vote Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/voting.gif)
+
+## Usage
+
+Create a Poll:
+1. Navigate to `http://localhost:8080/`
+2. Click on "Start" button
+3. Enter a question and its options, click on "Create Poll" button 
+4. Enter your name and email, click on "Submit"
+5. Share the vote-link with your group
+
+Vote in Poll:
+1. Navigate to the voting page
+2. Vote by dragging and dropping the options in order to rank best(top) to worst(bottom)
+3. Click on "Results" to see the outcome of your group's vote
+
+## Tech Stack
+
+Back-end
+* NodeJS
+* Express
+* Knex
+
+Front-end
+* jQuery
+* EJS
+* SASS
+
+Database
+* PostgreSQL
 
 ## Setup
 1. Create your own empty repo on GitHub
@@ -25,14 +60,6 @@ Use Pollr to create a poll on what to eat tonight. Pollr uses [Borda Count](http
 5. Run migrations: `npm run knex migrate:latest`
 6. Run the server: `npm run local`
 7. Visit `http://localhost:8080/`
-
-## Usage
-1. Click on "Start" button on `http://localhost:8080/`
-2. Enter a question and its options, click on "Create Poll" button 
-3. Enter your name and email, click on "Submit"
-4. Share the vote-link with your group
-5. Vote by dragging and dropping the options in order to rank best(top) to worst(bottom)
-6. Click on "Results" to see the outcome of your group's vote
 
 ## Dependencies
 - Node 5.10.x or above
@@ -48,10 +75,3 @@ Use Pollr to create a poll on what to eat tonight. Pollr uses [Borda Count](http
 - Morgan
 - Node-Sass-Middleware
 - PostgreSQL
-
-## Authors
-
-Developed By:
-- Turner Schumann [@turnerschumann](https://github.com/turnerschumann)
-- Betty Qu [@betttyquu](https://github.com/betttyquu)
-- Nelson Yu [@Nelson-Yu](https://github.com/Nelson-Yu)
