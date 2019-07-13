@@ -11,12 +11,11 @@ Suppose your group is stubbornly debating on who is the best Avenger. Everyone h
 Use Pollr to create a poll on what to eat tonight. Pollr uses [Borda Count](https://en.wikipedia.org/wiki/Borda_count) to allocate points to each option based on the rank given by the voter. Once everyone in your group participates in the poll, check the results to see the top choice.
 
 ## Final Product
-!["Screenshot of Pollr Landing Page"](https://github.com/turnerschumann/decision-maker/blob/master/docs/Landing.png)
-!["Screenshot of Pollr Create Poll Page"](https://github.com/turnerschumann/decision-maker/blob/master/docs/Create-Poll.png)
-!["Screenshot of Pollr Submit User Page"](https://github.com/turnerschumann/decision-maker/blob/master/docs/Admin-User.png)
-!["Screenshot of Pollr Admin Links Page"](https://github.com/turnerschumann/decision-maker/blob/master/docs/Admin-Links.png)
-!["Screenshot of Pollr Vote Page"](https://github.com/turnerschumann/decision-maker/blob/master/docs/Results.png)
-!["Screenshot of Pollr Results Page"](https://github.com/turnerschumann/decision-maker/blob/master/docs/Voting-Page.png)
+!["Screenshot of Pollr Landing Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/landing.png)
+!["Screenshot of Pollr Create Poll Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/create-poll.png)
+!["Screenshot of Pollr Submit User Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/admin-register.png)
+!["Screenshot of Pollr Admin Links Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/admin-page.png)
+!["Screenshot of Pollr Vote Page"](https://github.com/Nelson-Yu/pollr/blob/master/docs/voting.gif)
 
 ## Setup
 1. Create your own empty repo on GitHub
